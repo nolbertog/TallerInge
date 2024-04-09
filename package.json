@@ -1,0 +1,15 @@
+{
+  "name": "talleringe",
+  "version": "1.0.0",
+  "description": "Taller Ingeniera de Software",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./server/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
