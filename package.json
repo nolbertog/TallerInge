@@ -4,12 +4,15 @@
   "description": "Taller Ingeniera de Software",
   "main": "index.js",
   "scripts": {
-    "start": "node ./server/index.js"
+    "start": "node ./index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.9.4",
+    "sequelize": "^6.37.2"
   }
 }
