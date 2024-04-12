@@ -1,7 +1,7 @@
 // index.js
 const express = require("express");
-const Master = require('./server/routers/routerMaster');
-const { syncDatabase } = require('./server/BD/sequelize');
+const Master = require('./src/routers/routerMaster.js');
+const { syncDatabase } = require('./src/db/sequelize.js');
 
 const PORT = process.env.PORT || 3001;
 
