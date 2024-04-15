@@ -1,6 +1,6 @@
-// models/usuario.js
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../sequelize');
+const Rol = require('./rol');
 
 const Usuario = sequelize.define('Usuario', {
     id: {
@@ -8,19 +8,41 @@ const Usuario = sequelize.define('Usuario', {
         primaryKey: true,
         autoIncrement: true,
     },
-    nombre: {
+    rut: {
         type: DataTypes.STRING,
     },
-    rut: {
+    username: {
+        type: DataTypes.STRING,
+    },
+    lastname: {
         type: DataTypes.STRING,
     },
     password: {
         type: DataTypes.STRING,
     },
-    rol: {
+    id_career: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: Rol, 
+            key: 'id' 
+        }
+    },
+    id_rol: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: Rol, 
+            key: 'id' 
+        }
+    },
+    primaryEmail: {
         type: DataTypes.STRING,
     },
-    
-});
+    secundaryEmail: {
+        type: DataTypes.STRING,
+    },
+    description: {
+        type: DataTypes.STRING,
+    },
+}, { tableName: 'TBD_USUARIOS' });
 
 module.exports = Usuario;
