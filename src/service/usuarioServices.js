@@ -1,6 +1,4 @@
 const Usuario = require('../db/models/user');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
 async function crearUsuario(usuarioData) {
     try {
@@ -16,7 +14,7 @@ async function obtenerUsuario() {
         const usuarios = await Usuario.findAll();
         return usuarios;
     } catch (error) {
-        throw new Error('Error al obtener Usuarios');
+        throw new Error('Error al obtener Usuariosklas');
     }
 }
 

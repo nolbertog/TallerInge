@@ -1,4 +1,4 @@
-const usuarioService = require('../service/usuarioServices.js');
+const usuarioService = require('../service/usuarioServices');
 
 async function crearUsuario(req, res) {
     try {
@@ -11,7 +11,7 @@ async function crearUsuario(req, res) {
 
 async function obtenerUsuarios(req, res) {
     try {
-        const usuarios = await usuarioService.obtenerUsuarios();
+        const usuarios = await usuarioService.obtenerUsuario();
         return res.status(200).json(usuarios);
     } catch (error) {
         return res.status(500).json({ error: error.message });

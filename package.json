@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Taller Ingeniera de Software",
   "main": "index.js",
+  "module": "CommonJS",
   "scripts": {
     "start": "nodemon ./src/index.js"
   },
@@ -21,4 +22,5 @@
   "devDependencies": {
     "nodemon": "^3.1.0"
   }
+  
 }
