@@ -2,12 +2,14 @@
 const express = require("express");
 const Master = require('./src/routers/routerMaster.js');
 const { syncDatabase } = require('./src/db/sequelize.js');
-import cors from 'cors'
+const  cors = require ('cors');
 
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
+
 const app = express();
+
+app.use(cors());
 
 app.use('/', Master);
 app.get("/api", (req, res) => {
