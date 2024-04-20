@@ -11,7 +11,7 @@ async function syncDatabase() {
   try {
     await sequelize.authenticate();
     console.log('Conexión a la base de datos establecida correctamente.');
-    await sequelize.sync(); // Esto sincronizará todos los modelos con la base de datos
+    await sequelize.sync(); 
     console.log('Modelos sincronizados con la base de datos.');
   } catch (error) {
     console.error('Error al conectar a la base de datos:', error);

@@ -14,6 +14,6 @@ const Area = sequelize.define('Area', {
     },
     
     
-}, { tableName: 'TBD_Area' });
+}, { tableName: 'TBD_AREA' });
 
 module.exports = Area;

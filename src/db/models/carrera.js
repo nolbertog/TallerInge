@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../sequelize');
-const Rol = require('./facultad');
-const Rol = require('./sedes');
-const Rol = require('./area');
+const Facultad = require('./facultad');
+const Hearquarter = require('./sede');
+const Area = require('./area');
 
 const Carrera = sequelize.define('Carrera', {
     id: {
@@ -17,22 +17,22 @@ const Carrera = sequelize.define('Carrera', {
     id_facultie: {
         type: DataTypes.INTEGER,
         references: {
-            model: Facultie, 
-            key: 'id' 
+            model: Facultad, 
+            key: 'id', 
         }
     },
     id_headquarter: {
         type: DataTypes.INTEGER,
         references: {
             model: Hearquarter, 
-            key: 'id' 
+            key: 'id', 
         }
     },
     id_area: {
         type: DataTypes.INTEGER,
         references: {
             model: Area, 
-            key: 'id' 
+            key: 'id',
         }
     },
     

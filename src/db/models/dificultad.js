@@ -2,18 +2,22 @@ const { DataTypes } = require('sequelize');
 const { sequelize } = require('../sequelize');
 
 
-const Alcance = sequelize.define('Alcance', {
+
+const DificultadNivel = sequelize.define('DificultadNivel', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
 
-    name_scope: {
+    name_category: {
+        type: DataTypes.STRING,
+    },
+    descripcion: {
         type: DataTypes.STRING,
     },
     
     
-}, { tableName: 'TBD_ALCANCES' });
+}, { tableName: 'TBD_DIFICULTADES_NIVEL' });
 
-module.exports = Alcance;
+module.exports = DificultadNivel;

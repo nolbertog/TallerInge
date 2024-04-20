@@ -14,6 +14,6 @@ const Modalidad = sequelize.define('Modalidad', {
     },
     
     
-}, { tableName: 'TBD_Modalidades' });
+}, { tableName: 'TBD_MODALIDADES' });
 
 module.exports = Modalidad;
