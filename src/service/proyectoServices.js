@@ -39,7 +39,7 @@ async function actualizarProyecto(id, newData) {
         if (!updated) {
             throw new Error('proyecto no encontrado');
         }
-        const proyecto = await Proyectoo.findByPk(id);
+        const proyecto = await Proyecto.findByPk(id);
         return proyecto;
     } catch (error) {
         throw new Error('Error al actualizar el proyecto');
