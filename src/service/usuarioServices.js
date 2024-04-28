@@ -1,4 +1,6 @@
 const Usuario = require('../db/models/user');
+const bcrypt = require('bcrypt');
+
 
 async function crearUsuario(usuarioData) {
     try {
@@ -62,15 +64,18 @@ async function iniciarSesion(username, password) {
         if (!usuario) {
             throw new Error('Nombre de usuario incorrecto');
         }
-        const match = await bcrypt.compare(password, usuario.passwordHash);
+        const match = await bcrypt.compare(password, usuario.password);
         if (!match) {
             throw new Error('Contraseña incorrecta');
         }
         return { message: 'Inicio de sesión exitoso', usuario: usuario };
     } catch (error) {
-        throw new Error('Error al iniciar sesión');
+        throw new Error('Error al iniciar sesión: ' + error.message);
     }
 }
+
+
+
 
 
 module.exports = {

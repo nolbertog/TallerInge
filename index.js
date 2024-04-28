@@ -11,8 +11,9 @@ const app = express();
 
 app.use(cors());
 
+
 app.use('/', Master);
-app.get("/api", (req, res) => {
+app.get("/", (req, res) => {
     res.json({ message: "Hola desde el servidor!" });
 });
 
