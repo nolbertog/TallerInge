@@ -62,7 +62,7 @@ async function iniciarSesion(username, password) {
         if (!usuario) {
             throw new Error('Nombre de usuario incorrecto');
         }
-        const match = await bcrypt.compare(password, usuario.password);
+        const match = await bcrypt.compare(password, usuario.passwordHash);
         if (!match) {
             throw new Error('Contraseña incorrecta');
         }
@@ -71,6 +71,7 @@ async function iniciarSesion(username, password) {
         throw new Error('Error al iniciar sesión');
     }
 }
+
 
 module.exports = {
     crearUsuario,
