@@ -56,8 +56,7 @@ async function eliminarUsuario(id) {
     }
 }
 
-async function iniciarSesion(req, res) {
-    const { username, password } = req.body;
+async function iniciarSesion(username, password) {
     try {
         const usuario = await Usuario.findOne({ where: { username } });
         if (!usuario) {
@@ -67,10 +66,9 @@ async function iniciarSesion(req, res) {
         if (!match) {
             throw new Error('Contraseña incorrecta');
         }
-
-        res.status(200).json({ message: 'Inicio de sesión exitoso' });
+        return { message: 'Inicio de sesión exitoso', usuario: usuario };
     } catch (error) {
-        res.status(401).json({ error: error.message });
+        throw new Error('Error al iniciar sesión');
     }
 }
 

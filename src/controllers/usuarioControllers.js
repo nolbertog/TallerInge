@@ -50,9 +50,9 @@ async function eliminarUsuario(req, res) {
 }
 
 async function iniciarSesion(req, res) {
-    const { rut, password } = req.body;
+    const { username, password } = req.body;
     try {
-        const sesion = await usuarioService.iniciarSesion(rut, password);
+        const sesion = await usuarioService.iniciarSesion(username, password);
         return res.status(200).json(sesion);
     } catch (error) {
         return res.status(401).json({ error: error.message });
