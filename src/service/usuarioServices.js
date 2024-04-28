@@ -3,7 +3,7 @@ const Usuario = require('../db/models/user');
 async function crearUsuario(usuarioData) {
     try {
         const usuario = await Usuario.create(usuarioData);
-        return usuario;
+        return 'Usuario creado correctamente';
     } catch (error) {
         throw new Error('Error al crear el Usuario');
     }
@@ -56,16 +56,21 @@ async function eliminarUsuario(id) {
     }
 }
 
-async function iniciarSesion(rut, password) {
+async function iniciarSesion(req, res) {
+    const { username, password } = req.body;
     try {
-        const usuario = await Usuario.findOne({ where: { rut } });
-        if (!usuario || !bcrypt.compareSync(password, usuario.password)) {
-            throw new Error('Credenciales incorrectas');
+        const usuario = usuarios.find(u => u.username === rut);
+        if (!usuario) {
+            throw new Error('Nombre de usuario incorrecto');
         }
-        const token = jwt.sign({ userId: usuario.id }, 'tu_secreto_secreto', { expiresIn: '1h' });
-        return { token, userId: usuario.id, nombre: usuario.nombre };
+        const match = await bcrypt.compare(password, usuario.passwordHash);
+        if (!match) {
+            throw new Error('Contraseña incorrecta');
+        }
+
+        res.status(200).json({ message: 'Inicio de sesión exitoso' });
     } catch (error) {
-        throw new Error('Error al iniciar sesión');
+        res.status(401).json({ error: error.message });
     }
 }
 

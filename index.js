@@ -16,7 +16,6 @@ app.get("/api", (req, res) => {
     res.json({ message: "Hola desde el servidor!" });
 });
 
-// Sincroniza la base de datos al iniciar la aplicación
 syncDatabase().then(() => {
     app.listen(PORT, () => {
         console.log(`Server listening on ${PORT}`);

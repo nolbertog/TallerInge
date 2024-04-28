@@ -1,7 +1,8 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../sequelize');
 const Rol = require('./rol');
-const Carrera = require('./carrera')
+const Carrera = require('./carrera');
+const bcrypt = require('bcrypt');
 
 const Usuario = sequelize.define('Usuario', {
     id: {
@@ -20,6 +21,7 @@ const Usuario = sequelize.define('Usuario', {
     },
     password: {
         type: DataTypes.STRING,
+        allowNull: false, 
     },
     id_career: {
         type: DataTypes.INTEGER,
@@ -44,6 +46,14 @@ const Usuario = sequelize.define('Usuario', {
     description: {
         type: DataTypes.STRING,
     },
-}, { tableName: 'TBD_USUARIOS' });
+}, { 
+    tableName: 'TBD_USUARIOS',
+    hooks: {
+        beforeCreate: async (usuario, options) => {
+            const hashedPassword = await bcrypt.hash(usuario.password, 10); 
+            usuario.password = hashedPassword;
+        }
+    }
+});
 
 module.exports = Usuario;
