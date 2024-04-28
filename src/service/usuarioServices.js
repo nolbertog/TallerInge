@@ -59,11 +59,11 @@ async function eliminarUsuario(id) {
 async function iniciarSesion(req, res) {
     const { username, password } = req.body;
     try {
-        const usuario = usuarios.find(u => u.username === rut);
+        const usuario = await Usuario.findOne({ where: { username } });
         if (!usuario) {
             throw new Error('Nombre de usuario incorrecto');
         }
-        const match = await bcrypt.compare(password, usuario.passwordHash);
+        const match = await bcrypt.compare(password, usuario.password);
         if (!match) {
             throw new Error('Contraseña incorrecta');
         }
