@@ -1,6 +1,6 @@
 const Usuario = require('../db/models/user');
 const bcrypt = require('bcrypt');
-
+const jwt = require('jsonwebtoken');
 
 async function crearUsuario(usuarioData) {
     try {
@@ -68,15 +68,15 @@ async function iniciarSesion(username, password) {
         if (!match) {
             throw new Error('Contraseña incorrecta');
         }
-        return { message: 'Inicio de sesión exitoso', usuario: usuario };
+
+        // Generar un token JWT
+        const token = jwt.sign({ userId: usuario.id }, 'secreto', { expiresIn: '1m' });
+
+        return { message: 'Inicio de sesión exitoso', usuario: usuario, token: token };
     } catch (error) {
-        throw new Error('Error al iniciar sesión: ' + error.message);
+        throw new Error(error.message);
     }
 }
-
-
-
-
 
 module.exports = {
     crearUsuario,
