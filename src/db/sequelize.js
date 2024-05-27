@@ -19,3 +19,5 @@ async function syncDatabase() {
 }
 
 module.exports = { sequelize, syncDatabase };
+
+

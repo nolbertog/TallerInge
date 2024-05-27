@@ -2,7 +2,7 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../sequelize');
 const Usuario = require('./user');
-const EntidadPostulante = require('./EntidadPostulante');
+const EntidadPostulante = require('./--Entidad_postulante');
 const Alcance = require('./alcance');
 const Ambito = require('./ambito');
 const Riesgo = require('./riesgo');
@@ -10,7 +10,7 @@ const Alineamiento = require('./alineamiento');
 const DificultadNivel = require('./dificultad')
 const Etapa = require('./etapa')
 const Aprobacion = require('./aprobaciones')
-const RestriccionAprobacion = require('./restriccion_aprobacion')
+const RestriccionAprobacion = require('./--restriccion_aprobacion')
 const Modalidad = require('./modalidad')
 
 

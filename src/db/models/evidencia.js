@@ -14,10 +14,10 @@ const Evidencia = sequelize.define('Evidencia', {
         type: DataTypes.STRING,
     },
     id_proyect: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         references:{
             model: Proyecto,
-            key: id,
+            key: 'id',
         }
     },
     
