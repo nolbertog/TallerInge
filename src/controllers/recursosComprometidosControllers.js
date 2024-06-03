@@ -1,4 +1,4 @@
-const recursosComprometidosService = require('../service/recursosComprometidosService');
+const recursosComprometidosService = require('../service/recursosComprometidosServices');
 
 async function crearRecursosComprometidos(req, res) {
     try {

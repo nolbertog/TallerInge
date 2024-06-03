@@ -24,7 +24,17 @@ const routerAprobaciones = require('./aprobacionesRouter');
 const routerAmbito = require('./ambitoRouter');
 const routerAlineamiento = require('./alineamientoRouter');
 const routerAlcance = require('./alcanceRouter');
-
+const routerActividadesComprometidas = require('./actividadesComprometidasRouter');
+const routerAlbunFoto = require('./albunFotoRouter');
+const routerAlumnosParticipantes = require('./alumnosParticipantesRouter');
+const routerAsignaturasParticipantes = require('./asignaturasParticipantesRouter');
+const routerColaboradorExterno = require('./colaboradorExternoRouter');
+const routerEntidadPostulante = require('./entidadPostulanteRouter');
+const routerFuenteFinanciamiento = require('./fuenteFinanciamientoRouter');
+const routerListadoAlumnosVoluntarios = require('./listadoAlumnosVoluntariosRouter');
+const routerListadoProfesoresParticipantes = require('./listadoProfesoresParticipantes');
+const routerRecursosComprometidos = require('./recursosComprometidosRouter');
+const routerRestriccionAprobacion = require('./restriccionAprobacionRouter');
 
 const Master = express()
 
@@ -54,6 +64,18 @@ Master.use(routerAprobaciones)
 Master.use(routerAmbito)
 Master.use(routerAlineamiento)
 Master.use(routerAlcance)
+Master.use(routerActividadesComprometidas)
+Master.use(routerAlbunFoto)
+Master.use(routerAlumnosParticipantes)
+Master.use(routerAsignaturasParticipantes)
+Master.use(routerColaboradorExterno)
+Master.use(routerEntidadPostulante)
+Master.use(routerFuenteFinanciamiento)
+Master.use(routerListadoAlumnosVoluntarios)
+Master.use(routerListadoProfesoresParticipantes)
+Master.use(routerRecursosComprometidos)
+Master.use(routerRestriccionAprobacion)
+
 
 
 module.exports = Master;

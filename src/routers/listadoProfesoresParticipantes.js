@@ -1,0 +1,14 @@
+const express = require('express');
+const listadoProfesoresParticipantesControllers = require('../controllers/listadoProfesoresParticipantesControllers'); 
+
+const routerListadoProfesoresParticipantes = express.Router();
+
+routerListadoProfesoresParticipantes.use(express.json());
+
+routerListadoProfesoresParticipantes.post('/listadoProfesoresParticipantes', listadoProfesoresParticipantesControllers.crearListadoProfesoresParticipantes);
+routerListadoProfesoresParticipantes.get('/listadoProfesoresParticipantes', listadoProfesoresParticipantesControllers.obtenerListadoProfesoresParticipantes); 
+routerListadoProfesoresParticipantes.get('/listadoProfesoresParticipantes/:id', listadoProfesoresParticipantesControllers.obtenerListadoProfesoresParticipantesPorId); 
+routerListadoProfesoresParticipantes.put('/listadoProfesoresParticipantes/:id', listadoProfesoresParticipantesControllers.actualizarListadoProfesoresParticipantes);
+routerListadoProfesoresParticipantes.delete('/listadoProfesoresParticipantes/:id', listadoProfesoresParticipantesControllers.eliminarListadoProfesoresParticipantes);
+
+module.exports = routerListadoProfesoresParticipantes;
