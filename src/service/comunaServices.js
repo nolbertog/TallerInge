@@ -1,4 +1,3 @@
-
 const Comuna = require('../db/models/comuna');
 
 async function crearComuna(comunaData) {
@@ -23,7 +22,7 @@ async function obtenerComunaPorId(id) {
     try {
         const comuna = await Comuna.findByPk(id);
         if (!comuna) {
-            throw new Error('comunca no encontrada');
+            throw new Error('Comuna no encontrada');
         }
         return comuna;
     } catch (error) {
@@ -37,7 +36,7 @@ async function actualizarComuna(id, newData) {
             where: { id },
         });
         if (!updated) {
-            throw new Error('comuna no encontrada');
+            throw new Error('Comuna no encontrada');
         }
         const comuna = await Comuna.findByPk(id);
         return comuna;
@@ -50,14 +49,12 @@ async function eliminarComuna(id) {
     try {
         const deleted = await Comuna.destroy({ where: { id } });
         if (!deleted) {
-            throw new Error('comuna no encontrada');
+            throw new Error('Comuna no encontrada');
         }
     } catch (error) {
         throw new Error('Error al eliminar la comuna');
     }
 }
-
-
 
 module.exports = {
     crearComuna,

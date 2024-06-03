@@ -1,4 +1,3 @@
-
 const AlbunFoto = require('../db/models/albunFoto');
 
 async function crearAlbunFoto(albunFotoData) {
@@ -6,7 +5,7 @@ async function crearAlbunFoto(albunFotoData) {
         const albunFoto = await AlbunFoto.create(albunFotoData);
         return albunFoto;
     } catch (error) {
-        throw new Error('Error al crear la albun');
+        throw new Error('Error al crear el álbum de fotos');
     }
 }
 
@@ -15,7 +14,7 @@ async function obtenerAlbunFoto() {
         const albunFoto = await AlbunFoto.findAll();
         return albunFoto;
     } catch (error) {
-        throw new Error('Error al obtener la albun');
+        throw new Error('Error al obtener el álbum de fotos');
     }
 }
 
@@ -23,11 +22,11 @@ async function obtenerAlbunFotoPorId(id) {
     try {
         const albunFoto = await AlbunFoto.findByPk(id);
         if (!albunFoto) {
-            throw new Error('albun no encontrada');
+            throw new Error('Álbum de fotos no encontrado');
         }
         return albunFoto;
     } catch (error) {
-        throw new Error('Error al obtener la albun por ID');
+        throw new Error('Error al obtener el álbum de fotos por ID');
     }
 }
 
@@ -37,12 +36,12 @@ async function actualizarAlbunFoto(id, newData) {
             where: { id },
         });
         if (!updated) {
-            throw new Error('albun no encontrada');
+            throw new Error('Álbum de fotos no encontrado');
         }
         const albunFoto = await AlbunFoto.findByPk(id);
         return albunFoto;
     } catch (error) {
-        throw new Error('Error al actualizar la albun');
+        throw new Error('Error al actualizar el álbum de fotos');
     }
 }
 
@@ -50,14 +49,12 @@ async function eliminarAlbunFoto(id) {
     try {
         const deleted = await AlbunFoto.destroy({ where: { id } });
         if (!deleted) {
-            throw new Error('albun no encontrada');
+            throw new Error('Álbum de fotos no encontrado');
         }
     } catch (error) {
-        throw new Error('Error al eliminar la albun');
+        throw new Error('Error al eliminar el álbum de fotos');
     }
 }
-
-
 
 module.exports = {
     crearAlbunFoto,

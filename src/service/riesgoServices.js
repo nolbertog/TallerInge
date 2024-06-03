@@ -1,4 +1,3 @@
-
 const Riesgo = require('../db/models/riesgo');
 
 async function crearRiesgo(riesgoData) {
@@ -23,11 +22,11 @@ async function obtenerRiesgoPorId(id) {
     try {
         const riesgo = await Riesgo.findByPk(id);
         if (!riesgo) {
-            throw new Error('riesgo no encontrada');
+            throw new Error('Riesgo no encontrado');
         }
         return riesgo;
     } catch (error) {
-        throw new Error('Error al obtener la riesgo por ID');
+        throw new Error('Error al obtener el riesgo por ID');
     }
 }
 
@@ -37,12 +36,12 @@ async function actualizarRiesgo(id, newData) {
             where: { id },
         });
         if (!updated) {
-            throw new Error('riesgo no encontrada');
+            throw new Error('Riesgo no encontrado');
         }
         const riesgo = await Riesgo.findByPk(id);
         return riesgo;
     } catch (error) {
-        throw new Error('Error al actualizar la riesgo');
+        throw new Error('Error al actualizar el riesgo');
     }
 }
 
@@ -50,14 +49,12 @@ async function eliminarRiesgo(id) {
     try {
         const deleted = await Riesgo.destroy({ where: { id } });
         if (!deleted) {
-            throw new Error('riesgo no encontrada');
+            throw new Error('Riesgo no encontrado');
         }
     } catch (error) {
-        throw new Error('Error al eliminar la riesgo');
+        throw new Error('Error al eliminar el riesgo');
     }
 }
-
-
 
 module.exports = {
     crearRiesgo,

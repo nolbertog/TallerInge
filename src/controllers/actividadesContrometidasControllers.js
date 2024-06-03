@@ -1,51 +1,63 @@
 const actividadesComprometidasServices = require('../service/actividadesComprometidasServices');
 
-async function crearActividadesComprometidas(req, res) {
+async function crearActividadesComprometidas(req, res, next) {
     try {
         const actividadesComprometidas = await actividadesComprometidasServices.crearRecursosComprometidos(req.body);
-        return res.status(201).json(actividadesComprometidas);
+        res.status(201).json(actividadesComprometidas);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        next(error);
     }
 }
 
-async function obtenerActividadesComprometidas(req, res) {
+async function obtenerActividadesComprometidas(req, res, next) {
     try {
         const actividadesComprometidas = await actividadesComprometidasServices.obtenerRecursosComprometidos();
-        return res.status(200).json(actividadesComprometidas);
+        res.status(200).json(actividadesComprometidas);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        next(error);
     }
 }
 
-async function obtenerActividadesComprometidasPorId(req, res) {
+async function obtenerActividadesComprometidasPorId(req, res, next) {
     const { id } = req.params;
     try {
         const actividadesComprometidas = await actividadesComprometidasServices.obtenerRecursosComprometidosPorId(id);
-        return res.status(200).json(actividadesComprometidas);
+        if (!actividadesComprometidas) {
+            res.status(404).json({ error: 'Actividades comprometidas no encontradas' });
+        } else {
+            res.status(200).json(actividadesComprometidas);
+        }
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        next(error);
     }
 }
 
-async function actualizarActividadesComprometidas(req, res) {
+async function actualizarActividadesComprometidas(req, res, next) {
     const { id } = req.params;
     const newData = req.body;
     try {
         const actividadesComprometidas = await actividadesComprometidasServices.actualizarRecursosComprometidos(id, newData);
-        return res.status(200).json(actividadesComprometidas);
+        if (!actividadesComprometidas) {
+            res.status(404).json({ error: 'Actividades comprometidas no encontradas' });
+        } else {
+            res.status(200).json(actividadesComprometidas);
+        }
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        next(error);
     }
 }
 
-async function eliminarActividadesComprometidas(req, res) {
+async function eliminarActividadesComprometidas(req, res, next) {
     const { id } = req.params;
     try {
-        await actividadesComprometidasServices.eliminarRecursosComprometidos(id);
-        return res.status(204).send();
+        const actividadesComprometidas = await actividadesComprometidasServices.eliminarRecursosComprometidos(id);
+        if (!actividadesComprometidas) {
+            res.status(404).json({ error: 'Actividades comprometidas no encontradas' });
+        } else {
+            res.status(204).send();
+        }
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        next(error);
     }
 }
 

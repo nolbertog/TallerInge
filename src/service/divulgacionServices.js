@@ -1,4 +1,3 @@
-
 const Divulgacion = require('../db/models/divulgacion');
 
 async function crearDivulgacion(divulgacionData) {
@@ -23,7 +22,7 @@ async function obtenerDivulgacionPorId(id) {
     try {
         const divulgacion = await Divulgacion.findByPk(id);
         if (!divulgacion) {
-            throw new Error('divulgacion no encontrada');
+            throw new Error('Divulgacion no encontrada');
         }
         return divulgacion;
     } catch (error) {
@@ -50,14 +49,12 @@ async function eliminarDivulgacion(id) {
     try {
         const deleted = await Divulgacion.destroy({ where: { id } });
         if (!deleted) {
-            throw new Error('divulgacion no encontrada');
+            throw new Error('Divulgacion no encontrada');
         }
     } catch (error) {
         throw new Error('Error al eliminar la divulgacion');
     }
 }
-
-
 
 module.exports = {
     crearDivulgacion,

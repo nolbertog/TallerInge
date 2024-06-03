@@ -1,4 +1,3 @@
-
 const RestriccionAprobacion = require('../db/models/restriccionAprobacion');
 
 async function crearRestriccionAprobacion(restriccionAprobacionData) {
@@ -23,7 +22,7 @@ async function obtenerRestriccionAprobacionPorId(id) {
     try {
         const restriccionAprobacion = await RestriccionAprobacion.findByPk(id);
         if (!restriccionAprobacion) {
-            throw new Error('restricciom no encontrada');
+            throw new Error('Restriccion no encontrada');
         }
         return restriccionAprobacion;
     } catch (error) {
@@ -37,7 +36,7 @@ async function actualizarRestriccionAprobacion(id, newData) {
             where: { id },
         });
         if (!updated) {
-            throw new Error('restriccion no encontrada');
+            throw new Error('Restriccion no encontrada');
         }
         const restriccionAprobacion = await RestriccionAprobacion.findByPk(id);
         return restriccionAprobacion;
@@ -50,14 +49,12 @@ async function eliminarRestriccionAprobacion(id) {
     try {
         const deleted = await RestriccionAprobacion.destroy({ where: { id } });
         if (!deleted) {
-            throw new Error('restriccion no encontrada');
+            throw new Error('Restriccion no encontrada');
         }
     } catch (error) {
         throw new Error('Error al eliminar la restriccion');
     }
 }
-
-
 
 module.exports = {
     crearRestriccionAprobacion,

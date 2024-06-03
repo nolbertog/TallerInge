@@ -16,7 +16,7 @@ async function obtenerUsuario() {
         const usuarios = await Usuario.findAll();
         return usuarios;
     } catch (error) {
-        throw new Error('Error al obtener Usuariosklas');
+        throw new Error('Error al obtener Usuarios');
     }
 }
 

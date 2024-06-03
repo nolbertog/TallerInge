@@ -3,18 +3,18 @@ const listadoProfesoresParticipantesServices = require('../service/listadoProfes
 async function crearListadoProfesoresParticipantes(req, res) {
     try {
         const listadoProfesoresParticipantes = await listadoProfesoresParticipantesServices.crearRecursosComprometidos(req.body);
-        return res.status(201).json(listadoProfesoresParticipantes);
+        res.status(201).json(listadoProfesoresParticipantes);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 }
 
 async function obtenerListadoProfesoresParticipantes(req, res) {
     try {
         const listadoProfesoresParticipantes = await listadoProfesoresParticipantesServices.obtenerRecursosComprometidos();
-        return res.status(200).json(listadoProfesoresParticipantes);
+        res.status(200).json(listadoProfesoresParticipantes);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 }
 
@@ -22,9 +22,12 @@ async function obtenerListadoProfesoresParticipantesPorId(req, res) {
     const { id } = req.params;
     try {
         const listadoProfesoresParticipantes = await listadoProfesoresParticipantesServices.obtenerRecursosComprometidosPorId(id);
-        return res.status(200).json(listadoProfesoresParticipantes);
+        if (!listadoProfesoresParticipantes) {
+            return res.status(404).json({ error: 'Listado de profesores participantes no encontrado' });
+        }
+        res.status(200).json(listadoProfesoresParticipantes);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 }
 
@@ -33,19 +36,25 @@ async function actualizarListadoProfesoresParticipantes(req, res) {
     const newData = req.body;
     try {
         const listadoProfesoresParticipantes = await listadoProfesoresParticipantesServices.actualizarRecursosComprometidos(id, newData);
-        return res.status(200).json(listadoProfesoresParticipantes);
+        if (!listadoProfesoresParticipantes) {
+            return res.status(404).json({ error: 'Listado de profesores participantes no encontrado' });
+        }
+        res.status(200).json(listadoProfesoresParticipantes);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 }
 
 async function eliminarListadoProfesoresParticipantes(req, res) {
     const { id } = req.params;
     try {
-        await listadoProfesoresParticipantesServices.eliminarRecursosComprometidos(id);
-        return res.status(204).send();
+        const result = await listadoProfesoresParticipantesServices.eliminarRecursosComprometidos(id);
+        if (!result) {
+            return res.status(404).json({ error: 'Listado de profesores participantes no encontrado' });
+        }
+        res.status(204).send();
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 }
 

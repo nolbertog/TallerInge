@@ -1,4 +1,3 @@
-
 const Alineamiento = require('../db/models/alineamiento');
 
 async function crearAlineamiento(alineamientoData) {
@@ -6,7 +5,7 @@ async function crearAlineamiento(alineamientoData) {
         const alineamiento = await Alineamiento.create(alineamientoData);
         return alineamiento;
     } catch (error) {
-        throw new Error('Error al crear la alineamiento');
+        throw new Error('Error al crear el alineamiento');
     }
 }
 
@@ -15,7 +14,7 @@ async function obtenerAlineamiento() {
         const alineamiento = await Alineamiento.findAll();
         return alineamiento;
     } catch (error) {
-        throw new Error('Error al obtener la alineamiento');
+        throw new Error('Error al obtener los alineamientos');
     }
 }
 
@@ -23,11 +22,11 @@ async function obtenerAlineamientoPorId(id) {
     try {
         const alineamiento = await Alineamiento.findByPk(id);
         if (!alineamiento) {
-            throw new Error('alineamiento no encontrada');
+            throw new Error('Alineamiento no encontrado');
         }
         return alineamiento;
     } catch (error) {
-        throw new Error('Error al obtener la alineamiento por ID');
+        throw new Error('Error al obtener el alineamiento por ID');
     }
 }
 
@@ -37,12 +36,12 @@ async function actualizarAlineamiento(id, newData) {
             where: { id },
         });
         if (!updated) {
-            throw new Error('Alineamiento no encontrada');
+            throw new Error('Alineamiento no encontrado');
         }
         const alineamiento = await Alineamiento.findByPk(id);
         return alineamiento;
     } catch (error) {
-        throw new Error('Error al actualizar la alineamiento');
+        throw new Error('Error al actualizar el alineamiento');
     }
 }
 
@@ -50,14 +49,12 @@ async function eliminarAlineamiento(id) {
     try {
         const deleted = await Alineamiento.destroy({ where: { id } });
         if (!deleted) {
-            throw new Error('Alineamiento no encontrada');
+            throw new Error('Alineamiento no encontrado');
         }
     } catch (error) {
-        throw new Error('Error al eliminar la alineamiento');
+        throw new Error('Error al eliminar el alineamiento');
     }
 }
-
-
 
 module.exports = {
     crearAlineamiento,

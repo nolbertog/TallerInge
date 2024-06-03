@@ -1,4 +1,3 @@
-
 const Area = require('../db/models/area');
 
 async function crearArea(areaData) {
@@ -6,7 +5,7 @@ async function crearArea(areaData) {
         const area = await Area.create(areaData);
         return area;
     } catch (error) {
-        throw new Error('Error al crear la area');
+        throw new Error('Error al crear el área');
     }
 }
 
@@ -15,7 +14,7 @@ async function obtenerArea() {
         const area = await Area.findAll();
         return area;
     } catch (error) {
-        throw new Error('Error al obtener la area');
+        throw new Error('Error al obtener el área');
     }
 }
 
@@ -23,11 +22,11 @@ async function obtenerAreaPorId(id) {
     try {
         const area = await Area.findByPk(id);
         if (!area) {
-            throw new Error('area no encontrada');
+            throw new Error('Área no encontrada');
         }
         return area;
     } catch (error) {
-        throw new Error('Error al obtener la area por ID');
+        throw new Error('Error al obtener el área por ID');
     }
 }
 
@@ -37,12 +36,12 @@ async function actualizarArea(id, newData) {
             where: { id },
         });
         if (!updated) {
-            throw new Error('Area no encontrada');
+            throw new Error('Área no encontrada');
         }
         const area = await Area.findByPk(id);
         return area;
     } catch (error) {
-        throw new Error('Error al actualizar la area');
+        throw new Error('Error al actualizar el área');
     }
 }
 
@@ -50,14 +49,12 @@ async function eliminarArea(id) {
     try {
         const deleted = await Area.destroy({ where: { id } });
         if (!deleted) {
-            throw new Error('area no encontrada');
+            throw new Error('Área no encontrada');
         }
     } catch (error) {
-        throw new Error('Error al eliminar la area');
+        throw new Error('Error al eliminar el área');
     }
 }
-
-
 
 module.exports = {
     crearArea,

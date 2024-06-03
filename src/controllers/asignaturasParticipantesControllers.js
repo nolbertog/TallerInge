@@ -3,18 +3,18 @@ const asignaturasParticipantesServices = require('../service/asignaturasParticip
 async function crearAsignaturasParticipantes(req, res) {
     try {
         const asignaturasParticipantes = await asignaturasParticipantesServices.crearRecursosComprometidos(req.body);
-        return res.status(201).json(asignaturasParticipantes);
+        res.status(201).json(asignaturasParticipantes);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 }
 
 async function obtenerAsignaturasParticipantes(req, res) {
     try {
         const asignaturasParticipantes = await asignaturasParticipantesServices.obtenerRecursosComprometidos();
-        return res.status(200).json(asignaturasParticipantes);
+        res.status(200).json(asignaturasParticipantes);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 }
 
@@ -22,9 +22,12 @@ async function obtenerAsignaturasParticipantesPorId(req, res) {
     const { id } = req.params;
     try {
         const asignaturasParticipantes = await asignaturasParticipantesServices.obtenerRecursosComprometidosPorId(id);
-        return res.status(200).json(asignaturasParticipantes);
+        if (!asignaturasParticipantes) {
+            return res.status(404).json({ error: 'Asignaturas participantes not found' });
+        }
+        res.status(200).json(asignaturasParticipantes);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 }
 
@@ -33,19 +36,25 @@ async function actualizarAsignaturasParticipantes(req, res) {
     const newData = req.body;
     try {
         const asignaturasParticipantes = await asignaturasParticipantesServices.actualizarRecursosComprometidos(id, newData);
-        return res.status(200).json(asignaturasParticipantes);
+        if (!asignaturasParticipantes) {
+            return res.status(404).json({ error: 'Asignaturas participantes not found' });
+        }
+        res.status(200).json(asignaturasParticipantes);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 }
 
 async function eliminarAsignaturasParticipantes(req, res) {
     const { id } = req.params;
     try {
-        await asignaturasParticipantesServices.eliminarRecursosComprometidos(id);
-        return res.status(204).send();
+        const deletedCount = await asignaturasParticipantesServices.eliminarRecursosComprometidos(id);
+        if (deletedCount === 0) {
+            return res.status(404).json({ error: 'Asignaturas participantes not found' });
+        }
+        res.status(204).send();
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 }
 

@@ -1,4 +1,3 @@
-
 const Ambito = require('../db/models/ambito');
 
 async function crearAmbito(ambitoData) {
@@ -6,7 +5,7 @@ async function crearAmbito(ambitoData) {
         const ambito = await Ambito.create(ambitoData);
         return ambito;
     } catch (error) {
-        throw new Error('Error al crear la ambito');
+        throw new Error('Error al crear el ámbito');
     }
 }
 
@@ -15,7 +14,7 @@ async function obtenerAmbito() {
         const ambito = await Ambito.findAll();
         return ambito;
     } catch (error) {
-        throw new Error('Error al obtener la ambito');
+        throw new Error('Error al obtener el ámbito');
     }
 }
 
@@ -23,11 +22,11 @@ async function obtenerAmbitoPorId(id) {
     try {
         const ambito = await Ambito.findByPk(id);
         if (!ambito) {
-            throw new Error('ambito no encontrada');
+            throw new Error('Ámbito no encontrado');
         }
         return ambito;
     } catch (error) {
-        throw new Error('Error al obtener la ambito por ID');
+        throw new Error('Error al obtener el ámbito por ID');
     }
 }
 
@@ -37,12 +36,12 @@ async function actualizarAmbito(id, newData) {
             where: { id },
         });
         if (!updated) {
-            throw new Error('Ambito no encontrada');
+            throw new Error('Ámbito no encontrado');
         }
         const ambito = await Ambito.findByPk(id);
         return ambito;
     } catch (error) {
-        throw new Error('Error al actualizar la ambito');
+        throw new Error('Error al actualizar el ámbito');
     }
 }
 
@@ -50,14 +49,12 @@ async function eliminarAmbito(id) {
     try {
         const deleted = await Ambito.destroy({ where: { id } });
         if (!deleted) {
-            throw new Error('Ambito no encontrada');
+            throw new Error('Ámbito no encontrado');
         }
     } catch (error) {
-        throw new Error('Error al eliminar la ambito');
+        throw new Error('Error al eliminar el ámbito');
     }
 }
-
-
 
 module.exports = {
     crearAmbito,

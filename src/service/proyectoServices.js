@@ -1,4 +1,3 @@
-
 const Proyecto = require('../db/models/proyecto');
 
 async function crearProyecto(proyectoData) {
@@ -23,7 +22,7 @@ async function obtenerProyectoPorId(id) {
     try {
         const proyecto = await Proyecto.findByPk(id);
         if (!proyecto) {
-            throw new Error('proyecto no encontrada');
+            throw new Error('Proyecto no encontrado');
         }
         return proyecto;
     } catch (error) {
@@ -37,7 +36,7 @@ async function actualizarProyecto(id, newData) {
             where: { id },
         });
         if (!updated) {
-            throw new Error('proyecto no encontrado');
+            throw new Error('Proyecto no encontrado');
         }
         const proyecto = await Proyecto.findByPk(id);
         return proyecto;
@@ -50,19 +49,17 @@ async function eliminarProyecto(id) {
     try {
         const deleted = await Proyecto.destroy({ where: { id } });
         if (!deleted) {
-            throw new Error('proyecto no encontrado');
+            throw new Error('Proyecto no encontrado');
         }
     } catch (error) {
         throw new Error('Error al eliminar el proyecto');
     }
 }
 
-
-
 module.exports = {
     crearProyecto,
     obtenerProyecto,
     obtenerProyectoPorId,
     actualizarProyecto,
-    eliminarProyecto ,
+    eliminarProyecto,
 };

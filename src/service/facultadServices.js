@@ -1,4 +1,3 @@
-
 const Facultad = require('../db/models/facultad');
 
 async function crearFacultad(facultadData) {
@@ -37,7 +36,7 @@ async function actualizarFacultad(id, newData) {
             where: { id },
         });
         if (!updated) {
-            throw new Error('Facultad no encontrado');
+            throw new Error('Facultad no encontrada');
         }
         const facultad = await Facultad.findByPk(id);
         return facultad;
@@ -50,19 +49,17 @@ async function eliminarFacultad(id) {
     try {
         const deleted = await Facultad.destroy({ where: { id } });
         if (!deleted) {
-            throw new Error('Facultad no encontrado');
+            throw new Error('Facultad no encontrada');
         }
     } catch (error) {
         throw new Error('Error al eliminar la Facultad');
     }
 }
 
-
-
 module.exports = {
     crearFacultad,
     obtenerFacultad,
     obtenerFacultadPorId,
     actualizarFacultad,
-    eliminarFacultad ,
+    eliminarFacultad,
 };

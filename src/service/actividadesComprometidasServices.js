@@ -1,4 +1,3 @@
-
 const ActividadesComprometidas = require('../db/models/actividadesComprometidas');
 
 async function crearActividadesComprometidas(actividadesComprometidasData) {
@@ -6,7 +5,7 @@ async function crearActividadesComprometidas(actividadesComprometidasData) {
         const actividadesComprometidas = await ActividadesComprometidas.create(actividadesComprometidasData);
         return actividadesComprometidas;
     } catch (error) {
-        throw new Error('Error al crear la actividades comprometidas');
+        throw new Error('Error al crear las actividades comprometidas');
     }
 }
 
@@ -15,7 +14,7 @@ async function obtenerActividadesComprometidas() {
         const actividadesComprometidas = await ActividadesComprometidas.findAll();
         return actividadesComprometidas;
     } catch (error) {
-        throw new Error('Error al obtener la actividades comprometidas');
+        throw new Error('Error al obtener las actividades comprometidas');
     }
 }
 
@@ -23,11 +22,11 @@ async function obtenerActividadesComprometidaPorId(id) {
     try {
         const actividadesComprometidas = await ActividadesComprometidas.findByPk(id);
         if (!actividadesComprometidas) {
-            throw new Error('actividades comprometidas no encontrada');
+            throw new Error('Actividades comprometidas no encontrada');
         }
         return actividadesComprometidas;
     } catch (error) {
-        throw new Error('Error al obtener la la actividad por ID');
+        throw new Error('Error al obtener la actividad por ID');
     }
 }
 
@@ -56,8 +55,6 @@ async function eliminarActividadesComprometida(id) {
         throw new Error('Error al eliminar la actividad');
     }
 }
-
-
 
 module.exports = {
     crearActividadesComprometidas,

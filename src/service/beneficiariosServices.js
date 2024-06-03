@@ -1,4 +1,3 @@
-
 const Beneficiarios = require('../db/models/beneficiarios');
 
 async function crearBeneficiarios(beneficiariosData) {
@@ -6,7 +5,7 @@ async function crearBeneficiarios(beneficiariosData) {
         const beneficiarios = await Beneficiarios.create(beneficiariosData);
         return beneficiarios;
     } catch (error) {
-        throw new Error('Error al crear la beneficiarios');
+        throw new Error('Error al crear los beneficiarios');
     }
 }
 
@@ -15,7 +14,7 @@ async function obtenerBeneficiarios() {
         const beneficiarios = await Beneficiarios.findAll();
         return beneficiarios;
     } catch (error) {
-        throw new Error('Error al obtener la beneficiarios');
+        throw new Error('Error al obtener los beneficiarios');
     }
 }
 
@@ -23,11 +22,11 @@ async function obtenerBeneficiariosPorId(id) {
     try {
         const beneficiarios = await Beneficiarios.findByPk(id);
         if (!beneficiarios) {
-            throw new Error('beneficiarios no encontrada');
+            throw new Error('Beneficiarios no encontrados');
         }
         return beneficiarios;
     } catch (error) {
-        throw new Error('Error al obtener la beneficiarios por ID');
+        throw new Error('Error al obtener los beneficiarios por ID');
     }
 }
 
@@ -37,12 +36,12 @@ async function actualizarBeneficiarios(id, newData) {
             where: { id },
         });
         if (!updated) {
-            throw new Error('Beneficiarios no encontrada');
+            throw new Error('Beneficiarios no encontrados');
         }
         const beneficiarios = await Beneficiarios.findByPk(id);
         return beneficiarios;
     } catch (error) {
-        throw new Error('Error al actualizar la beneficiarios');
+        throw new Error('Error al actualizar los beneficiarios');
     }
 }
 
@@ -50,14 +49,12 @@ async function eliminarBeneficiarios(id) {
     try {
         const deleted = await Beneficiarios.destroy({ where: { id } });
         if (!deleted) {
-            throw new Error('beneficiarios no encontrada');
+            throw new Error('Beneficiarios no encontrados');
         }
     } catch (error) {
-        throw new Error('Error al eliminar la beneficiarios');
+        throw new Error('Error al eliminar los beneficiarios');
     }
 }
-
-
 
 module.exports = {
     crearBeneficiarios,

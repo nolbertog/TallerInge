@@ -1,4 +1,3 @@
-
 const AlumnosParticipantes = require('../db/models/alumnosParticipantes');
 
 async function crearAlumnosParticipantes(alumnosParticipantesData) {
@@ -6,7 +5,7 @@ async function crearAlumnosParticipantes(alumnosParticipantesData) {
         const alumnosParticipantes = await AlbunFoto.create(alumnosParticipantesData);
         return alumnosParticipantes;
     } catch (error) {
-        throw new Error('Error al crear la alumnos participantes');
+        throw new Error('Error al crear los alumnos participantes');
     }
 }
 
@@ -15,7 +14,7 @@ async function obtenerAlumnosParticipantes() {
         const alumnosParticipantes = await AlumnosParticipantes.findAll();
         return alumnosParticipantes;
     } catch (error) {
-        throw new Error('Error al obtener la alumnos participantes');
+        throw new Error('Error al obtener los alumnos participantes');
     }
 }
 
@@ -23,11 +22,11 @@ async function obtenerAlumnosParticipantesPorId(id) {
     try {
         const alumnosParticipantes = await AlumnosParticipantes.findByPk(id);
         if (!alumnosParticipantes) {
-            throw new Error('alumno participante no encontrada');
+            throw new Error('Alumno participante no encontrado');
         }
         return alumnosParticipantes;
     } catch (error) {
-        throw new Error('Error al obtener la alumno participante por ID');
+        throw new Error('Error al obtener el alumno participante por ID');
     }
 }
 
@@ -37,12 +36,12 @@ async function actualizarAlumnosParticipantes(id, newData) {
             where: { id },
         });
         if (!updated) {
-            throw new Error('alumno participante no encontrada');
+            throw new Error('Alumno participante no encontrado');
         }
         const alumnosParticipantes = await AlumnosParticipantes.findByPk(id);
         return alumnosParticipantes;
     } catch (error) {
-        throw new Error('Error al actualizar la alumno participante');
+        throw new Error('Error al actualizar el alumno participante');
     }
 }
 
@@ -50,14 +49,12 @@ async function eliminarAlumnoParticipante(id) {
     try {
         const deleted = await AlumnosParticipantes.destroy({ where: { id } });
         if (!deleted) {
-            throw new Error('Alumno participante no encontrada');
+            throw new Error('Alumno participante no encontrado');
         }
     } catch (error) {
-        throw new Error('Error al eliminar la alumno Participante');
+        throw new Error('Error al eliminar el alumno participante');
     }
 }
-
-
 
 module.exports = {
     crearAlumnosParticipantes,

@@ -3,18 +3,18 @@ const usuarioService = require('../service/usuarioServices');
 async function crearUsuario(req, res) {
     try {
         const usuario = await usuarioService.crearUsuario(req.body);
-        return res.status(201).json(usuario);
+        res.status(201).json(usuario);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 }
 
 async function obtenerUsuarios(req, res) {
     try {
         const usuarios = await usuarioService.obtenerUsuario();
-        return res.status(200).json(usuarios);
+        res.status(200).json(usuarios);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 }
 
@@ -22,9 +22,13 @@ async function obtenerUsuarioPorId(req, res) {
     const { id } = req.params;
     try {
         const usuario = await usuarioService.obtenerUsuarioPorId(id);
-        return res.status(200).json(usuario);
+        if (!usuario) {
+            res.status(404).json({ error: 'Usuario no encontrado' });
+        } else {
+            res.status(200).json(usuario);
+        }
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 }
 
@@ -33,19 +37,27 @@ async function actualizarUsuario(req, res) {
     const newData = req.body;
     try {
         const usuario = await usuarioService.actualizarUsuario(id, newData);
-        return res.status(200).json(usuario);
+        if (!usuario) {
+            res.status(404).json({ error: 'Usuario no encontrado' });
+        } else {
+            res.status(200).json(usuario);
+        }
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 }
 
 async function eliminarUsuario(req, res) {
     const { id } = req.params;
     try {
-        await usuarioService.eliminarUsuario(id);
-        return res.status(204).send();
+        const usuario = await usuarioService.eliminarUsuario(id);
+        if (!usuario) {
+            res.status(404).json({ error: 'Usuario no encontrado' });
+        } else {
+            res.status(204).send();
+        }
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 }
 
@@ -53,12 +65,15 @@ async function iniciarSesion(req, res) {
     const { username, password } = req.body;
     try {
         const sesion = await usuarioService.iniciarSesion(username, password);
-        return res.status(200).json(sesion);
+        if (!sesion) {
+            res.status(401).json({ error: 'Credenciales inválidas' });
+        } else {
+            res.status(200).json(sesion);
+        }
     } catch (error) {
-        return res.status(401).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 }
-
 
 module.exports = {
     crearUsuario,

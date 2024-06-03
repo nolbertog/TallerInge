@@ -1,4 +1,3 @@
-
 const Ciudad = require('../db/models/ciudad');
 
 async function crearCiudad(ciudadData) {
@@ -23,7 +22,7 @@ async function obtenerCiudadPorId(id) {
     try {
         const ciudad = await Ciudad.findByPk(id);
         if (!ciudad) {
-            throw new Error('ciudad no encontrada');
+            throw new Error('Ciudad no encontrada');
         }
         return ciudad;
     } catch (error) {
@@ -36,7 +35,7 @@ async function actualizarCiudad(id, newData) {
         const [updated] = await Ciudad.update(newData, {
             where: { id },
         });
-        if (!updated) {
+        if (updated === 0) {
             throw new Error('Ciudad no encontrada');
         }
         const ciudad = await Ciudad.findByPk(id);
@@ -49,15 +48,13 @@ async function actualizarCiudad(id, newData) {
 async function eliminarCiudad(id) {
     try {
         const deleted = await Ciudad.destroy({ where: { id } });
-        if (!deleted) {
-            throw new Error('ciudad no encontrada');
+        if (deleted === 0) {
+            throw new Error('Ciudad no encontrada');
         }
     } catch (error) {
         throw new Error('Error al eliminar la ciudad');
     }
 }
-
-
 
 module.exports = {
     crearCiudad,

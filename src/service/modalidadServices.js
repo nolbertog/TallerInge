@@ -1,4 +1,3 @@
-
 const Modalidad = require('../db/models/modalidad');
 
 async function crearModalidad(modalidadData) {
@@ -23,7 +22,7 @@ async function obtenerModalidadPorId(id) {
     try {
         const modalidad = await Modalidad.findByPk(id);
         if (!modalidad) {
-            throw new Error('modalidad no encontrada');
+            throw new Error('Modalidad no encontrada');
         }
         return modalidad;
     } catch (error) {
@@ -37,7 +36,7 @@ async function actualizarModalidad(id, newData) {
             where: { id },
         });
         if (!updated) {
-            throw new Error('modalidad no encontrada');
+            throw new Error('Modalidad no encontrada');
         }
         const modalidad = await Modalidad.findByPk(id);
         return modalidad;
@@ -50,14 +49,12 @@ async function eliminarModalidad(id) {
     try {
         const deleted = await Modalidad.destroy({ where: { id } });
         if (!deleted) {
-            throw new Error('modalidad no encontrada');
+            throw new Error('Modalidad no encontrada');
         }
     } catch (error) {
         throw new Error('Error al eliminar la modalidad');
     }
 }
-
-
 
 module.exports = {
     crearModalidad,

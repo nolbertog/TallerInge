@@ -1,10 +1,9 @@
-
 const Sede = require('../db/models/sede');
 
 async function crearSede(sedeData) {
     try {
-        const usuario = await Sede.create(sedeData);
-        return usuario;
+        const sede = await Sede.create(sedeData);
+        return sede;
     } catch (error) {
         throw new Error('Error al crear la sede');
     }
@@ -23,11 +22,11 @@ async function obtenerSedePorId(id) {
     try {
         const sede = await Sede.findByPk(id);
         if (!sede) {
-            throw new Error('sede no encontrada');
+            throw new Error('Sede no encontrada');
         }
         return sede;
     } catch (error) {
-        throw new Error('Error al ontener la sede por ID');
+        throw new Error('Error al obtener la sede por ID');
     }
 }
 
@@ -37,7 +36,7 @@ async function actualizarSede(id, newData) {
             where: { id },
         });
         if (!updated) {
-            throw new Error('sede no encontrada');
+            throw new Error('Sede no encontrada');
         }
         const sede = await Sede.findByPk(id);
         return sede;
@@ -50,14 +49,12 @@ async function eliminarSede(id) {
     try {
         const deleted = await Sede.destroy({ where: { id } });
         if (!deleted) {
-            throw new Error('sede no encontrada');
+            throw new Error('Sede no encontrada');
         }
     } catch (error) {
         throw new Error('Error al eliminar la sede');
     }
 }
-
-
 
 module.exports = {
     crearSede,

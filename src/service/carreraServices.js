@@ -1,4 +1,3 @@
-
 const Carrera = require('../db/models/carrera');
 
 async function crearCarrera(carreraData) {
@@ -23,7 +22,7 @@ async function obtenerCarreraPorId(id) {
     try {
         const carrera = await Carrera.findByPk(id);
         if (!carrera) {
-            throw new Error('carrera no encontrada');
+            throw new Error('Carrera no encontrada');
         }
         return carrera;
     } catch (error) {
@@ -36,7 +35,7 @@ async function actualizarCarrera(id, newData) {
         const [updated] = await Carrera.update(newData, {
             where: { id },
         });
-        if (!updated) {
+        if (updated === 0) {
             throw new Error('Carrera no encontrada');
         }
         const carrera = await Carrera.findByPk(id);
@@ -49,15 +48,13 @@ async function actualizarCarrera(id, newData) {
 async function eliminarCarrera(id) {
     try {
         const deleted = await Carrera.destroy({ where: { id } });
-        if (!deleted) {
-            throw new Error('carrera no encontrada');
+        if (deleted === 0) {
+            throw new Error('Carrera no encontrada');
         }
     } catch (error) {
         throw new Error('Error al eliminar la carrera');
     }
 }
-
-
 
 module.exports = {
     crearCarrera,

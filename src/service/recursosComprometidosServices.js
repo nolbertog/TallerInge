@@ -1,4 +1,3 @@
-
 const RecursosComprometidos = require('../db/models/recursosComprometidos');
 
 async function crearRecursosComprometidos(recursosComprometidosData) {
@@ -6,7 +5,7 @@ async function crearRecursosComprometidos(recursosComprometidosData) {
         const recursosComprometidos = await RecursosComprometidos.create(recursosComprometidosData);
         return recursosComprometidos;
     } catch (error) {
-        throw new Error('Error al crear el recurso comprometido');
+        throw new Error('Error al crear el recurso comprometido: ' + error.message);
     }
 }
 
@@ -15,7 +14,7 @@ async function obtenerRecursosComprometidos() {
         const recursosComprometidos = await RecursosComprometidos.findAll();
         return recursosComprometidos;
     } catch (error) {
-        throw new Error('Error al obtener los recursos comprometidos');
+        throw new Error('Error al obtener los recursos comprometidos: ' + error.message);
     }
 }
 
@@ -23,11 +22,11 @@ async function obtenerRecursosComprometidosPorId(id) {
     try {
         const recursosComprometidos = await RecursosComprometidos.findByPk(id);
         if (!recursosComprometidos) {
-            throw new Error('recursos comprometidos no encontrado');
+            throw new Error('Recursos comprometidos no encontrado');
         }
         return recursosComprometidos;
     } catch (error) {
-        throw new Error('Error al obtener los recuros comprometidos por ID');
+        throw new Error('Error al obtener los recursos comprometidos por ID: ' + error.message);
     }
 }
 
@@ -42,7 +41,7 @@ async function actualizarRecursosComprometidos(id, newData) {
         const recursosComprometidos = await RecursosComprometidos.findByPk(id);
         return recursosComprometidos;
     } catch (error) {
-        throw new Error('Error al actualizar los recursos comprometidos');
+        throw new Error('Error al actualizar los recursos comprometidos: ' + error.message);
     }
 }
 
@@ -50,14 +49,12 @@ async function eliminarRecursosComprometidos(id) {
     try {
         const deleted = await RecursosComprometidos.destroy({ where: { id } });
         if (!deleted) {
-            throw new Error('recurosm comprometidos no encontrado');
+            throw new Error('Recursos comprometidos no encontrado');
         }
     } catch (error) {
-        throw new Error('Error al eliminar el recurso comprometido');
+        throw new Error('Error al eliminar el recurso comprometido: ' + error.message);
     }
 }
-
-
 
 module.exports = {
     crearRecursosComprometidos,

@@ -1,12 +1,11 @@
-
 const Aprobaciones = require('../db/models/aprobaciones');
 
-async function crearaprobaciones(aprobacionesData) {
+async function crearAprobaciones(aprobacionesData) {
     try {
         const aprobaciones = await Aprobaciones.create(aprobacionesData);
         return aprobaciones;
     } catch (error) {
-        throw new Error('Error al crear la aprobaciones');
+        throw new Error('Error al crear las aprobaciones');
     }
 }
 
@@ -15,7 +14,7 @@ async function obtenerAprobaciones() {
         const aprobaciones = await Aprobaciones.findAll();
         return aprobaciones;
     } catch (error) {
-        throw new Error('Error al obtener la aprobaciones');
+        throw new Error('Error al obtener las aprobaciones');
     }
 }
 
@@ -23,26 +22,26 @@ async function obtenerAprobacionesPorId(id) {
     try {
         const aprobaciones = await Aprobaciones.findByPk(id);
         if (!aprobaciones) {
-            throw new Error('aprobaciones no encontrada');
+            throw new Error('Aprobaciones no encontrada');
         }
         return aprobaciones;
     } catch (error) {
-        throw new Error('Error al obtener la aprobaciones por ID');
+        throw new Error('Error al obtener las aprobaciones por ID');
     }
 }
 
-async function actualizaraprobaciones(id, newData) {
+async function actualizarAprobaciones(id, newData) {
     try {
         const [updated] = await Aprobaciones.update(newData, {
             where: { id },
         });
         if (!updated) {
-            throw new Error('Aprobacioes no encontrada');
+            throw new Error('Aprobaciones no encontrada');
         }
         const aprobaciones = await Aprobaciones.findByPk(id);
         return aprobaciones;
     } catch (error) {
-        throw new Error('Error al actualizar la aprobaciones');
+        throw new Error('Error al actualizar las aprobaciones');
     }
 }
 
@@ -53,16 +52,14 @@ async function eliminarAprobaciones(id) {
             throw new Error('Aprobaciones no encontrada');
         }
     } catch (error) {
-        throw new Error('Error al eliminar la aprobaciones');
+        throw new Error('Error al eliminar las aprobaciones');
     }
 }
 
-
-
 module.exports = {
-    crearaprobaciones,
+    crearAprobaciones,
     obtenerAprobaciones,
     obtenerAprobacionesPorId,
-    actualizaraprobaciones,
+    actualizarAprobaciones,
     eliminarAprobaciones,
 };

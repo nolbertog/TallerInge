@@ -1,4 +1,3 @@
-
 const Etapa = require('../db/models/etapa');
 
 async function crearEtapa(etapaData) {
@@ -23,7 +22,7 @@ async function obtenerEtapaPorId(id) {
     try {
         const etapa = await Etapa.findByPk(id);
         if (!etapa) {
-            throw new Error('etapa no encontrada');
+            throw new Error('Etapa no encontrada');
         }
         return etapa;
     } catch (error) {
@@ -37,7 +36,7 @@ async function actualizarEtapa(id, newData) {
             where: { id },
         });
         if (!updated) {
-            throw new Error('etapa no encontrada');
+            throw new Error('Etapa no encontrada');
         }
         const etapa = await Etapa.findByPk(id);
         return etapa;
@@ -50,14 +49,12 @@ async function eliminarEtapa(id) {
     try {
         const deleted = await Etapa.destroy({ where: { id } });
         if (!deleted) {
-            throw new Error('etapa no encontrada');
+            throw new Error('Etapa no encontrada');
         }
     } catch (error) {
         throw new Error('Error al eliminar la etapa');
     }
 }
-
-
 
 module.exports = {
     crearEtapa,

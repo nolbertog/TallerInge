@@ -1,11 +1,17 @@
 const recursosComprometidosService = require('../service/recursosComprometidosServices');
 
+// Error handling middleware
+function handleError(res, error) {
+    return res.status(500).json({ error: error.message });
+}
+
 async function crearRecursosComprometidos(req, res) {
     try {
-        const recursosComprometidos = await recursosComprometidosService.crearRecursosComprometidos(req.body);
+        const { body } = req;
+        const recursosComprometidos = await recursosComprometidosService.crearRecursosComprometidos(body);
         return res.status(201).json(recursosComprometidos);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return handleError(res, error);
     }
 }
 
@@ -14,38 +20,47 @@ async function obtenerRecursosComprometidos(req, res) {
         const recursosComprometidos = await recursosComprometidosService.obtenerRecursosComprometidos();
         return res.status(200).json(recursosComprometidos);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return handleError(res, error);
     }
 }
 
 async function obtenerRecursosComprometidosPorId(req, res) {
-    const { id } = req.params;
     try {
+        const { id } = req.params;
         const recursosComprometidos = await recursosComprometidosService.obtenerRecursosComprometidosPorId(id);
+        if (!recursosComprometidos) {
+            return res.status(404).json({ error: 'Recursos comprometidos not found' });
+        }
         return res.status(200).json(recursosComprometidos);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return handleError(res, error);
     }
 }
 
 async function actualizarRecursosComprometidos(req, res) {
-    const { id } = req.params;
-    const newData = req.body;
     try {
+        const { id } = req.params;
+        const { body: newData } = req;
         const recursosComprometidos = await recursosComprometidosService.actualizarRecursosComprometidos(id, newData);
+        if (!recursosComprometidos) {
+            return res.status(404).json({ error: 'Recursos comprometidos not found' });
+        }
         return res.status(200).json(recursosComprometidos);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return handleError(res, error);
     }
 }
 
 async function eliminarRecursosComprometidos(req, res) {
-    const { id } = req.params;
     try {
-        await recursosComprometidosService.eliminarRecursosComprometidos(id);
+        const { id } = req.params;
+        const recursosComprometidos = await recursosComprometidosService.eliminarRecursosComprometidos(id);
+        if (!recursosComprometidos) {
+            return res.status(404).json({ error: 'Recursos comprometidos not found' });
+        }
         return res.status(204).send();
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return handleError(res, error);
     }
 }
 

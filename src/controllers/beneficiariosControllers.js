@@ -1,11 +1,15 @@
 const beneficiariosService = require('../service/beneficiariosServices');
 
+async function handleErrors(res, error) {
+    return res.status(500).json({ error: error.message });
+}
+
 async function crearBeneficiarios(req, res) {
     try {
         const beneficiarios = await beneficiariosService.crearBeneficiarios(req.body);
         return res.status(201).json(beneficiarios);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return handleErrors(res, error);
     }
 }
 
@@ -14,7 +18,7 @@ async function obtenerBeneficiarios(req, res) {
         const beneficiarios = await beneficiariosService.obtenerBeneficiarios();
         return res.status(200).json(beneficiarios);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return handleErrors(res, error);
     }
 }
 
@@ -24,7 +28,7 @@ async function obtenerBeneficiariosPorId(req, res) {
         const beneficiarios = await beneficiariosService.obtenerBeneficiariosPorId(id);
         return res.status(200).json(beneficiarios);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return handleErrors(res, error);
     }
 }
 
@@ -35,7 +39,7 @@ async function actualizarBeneficiarios(req, res) {
         const beneficiarios = await beneficiariosService.actualizarBeneficiarios(id, newData);
         return res.status(200).json(beneficiarios);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return handleErrors(res, error);
     }
 }
 
@@ -45,10 +49,9 @@ async function eliminarBeneficiarios(req, res) {
         await beneficiariosService.eliminarBeneficiarios(id);
         return res.status(204).send();
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return handleErrors(res, error);
     }
 }
-
 
 module.exports = {
     crearBeneficiarios,

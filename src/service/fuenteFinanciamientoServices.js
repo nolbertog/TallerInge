@@ -1,4 +1,3 @@
-
 const FuenteFinanciamiento = require('../db/models/fuenteFinanciamiento');
 
 async function crearFuenteFinanciamiento(fuenteFinanciamientoData) {
@@ -15,7 +14,7 @@ async function obtenerFuenteFinanciamiento() {
         const fuenteFinanciamiento = await FuenteFinanciamiento.findAll();
         return fuenteFinanciamiento;
     } catch (error) {
-        throw new Error('Error al Fuente Financiamiento');
+        throw new Error('Error al obtener la Fuente Financiamiento');
     }
 }
 
@@ -23,11 +22,11 @@ async function obtenerFuenteFinanciamientoPorId(id) {
     try {
         const fuenteFinanciamiento = await FuenteFinanciamiento.findByPk(id);
         if (!fuenteFinanciamiento) {
-            throw new Error('Fuente Financiamientono encontrada');
+            throw new Error('Fuente Financiamiento no encontrada');
         }
         return fuenteFinanciamiento;
     } catch (error) {
-        throw new Error('Error al Fuente Financiamiento por ID');
+        throw new Error('Error al obtener la Fuente Financiamiento por ID');
     }
 }
 
@@ -53,11 +52,9 @@ async function eliminarFuenteFinanciamiento(id) {
             throw new Error('Fuente Financiamiento no encontrada');
         }
     } catch (error) {
-        throw new Error('Error al eliminar el Fuente Financiamiento');
+        throw new Error('Error al eliminar la Fuente Financiamiento');
     }
 }
-
-
 
 module.exports = {
     crearFuenteFinanciamiento,

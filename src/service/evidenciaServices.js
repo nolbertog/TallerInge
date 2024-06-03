@@ -1,4 +1,3 @@
-
 const Evidencia = require('../db/models/evidencia');
 
 async function crearEvidencia(evidenciaData) {
@@ -37,7 +36,7 @@ async function actualizarEvidencia(id, newData) {
             where: { id },
         });
         if (!updated) {
-            throw new Error('Evidencia no encontrado');
+            throw new Error('Evidencia no encontrada');
         }
         const evidencia = await Evidencia.findByPk(id);
         return evidencia;
@@ -50,14 +49,12 @@ async function eliminarEvidencia(id) {
     try {
         const deleted = await Evidencia.destroy({ where: { id } });
         if (!deleted) {
-            throw new Error('Evidencia no encontrado');
+            throw new Error('Evidencia no encontrada');
         }
     } catch (error) {
         throw new Error('Error al eliminar la Evidencia');
     }
 }
-
-
 
 module.exports = {
     crearEvidencia,
