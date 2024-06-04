@@ -75,6 +75,7 @@ async function iniciarSesion(req, res) {
     }
 }
 
+
 module.exports = {
     crearUsuario,
     obtenerUsuarios,
@@ -82,4 +83,5 @@ module.exports = {
     actualizarUsuario,
     eliminarUsuario,
     iniciarSesion,
+    
 };

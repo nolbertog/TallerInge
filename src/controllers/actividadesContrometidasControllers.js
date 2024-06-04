@@ -2,7 +2,7 @@ const actividadesComprometidasServices = require('../service/actividadesComprome
 
 async function crearActividadesComprometidas(req, res, next) {
     try {
-        const actividadesComprometidas = await actividadesComprometidasServices.crearRecursosComprometidos(req.body);
+        const actividadesComprometidas = await actividadesComprometidasServices.crearActividadesComprometidas(req.body);
         res.status(201).json(actividadesComprometidas);
     } catch (error) {
         next(error);
@@ -11,7 +11,7 @@ async function crearActividadesComprometidas(req, res, next) {
 
 async function obtenerActividadesComprometidas(req, res, next) {
     try {
-        const actividadesComprometidas = await actividadesComprometidasServices.obtenerRecursosComprometidos();
+        const actividadesComprometidas = await actividadesComprometidasServices.obtenerActividadesComprometidas();
         res.status(200).json(actividadesComprometidas);
     } catch (error) {
         next(error);
@@ -21,7 +21,7 @@ async function obtenerActividadesComprometidas(req, res, next) {
 async function obtenerActividadesComprometidasPorId(req, res, next) {
     const { id } = req.params;
     try {
-        const actividadesComprometidas = await actividadesComprometidasServices.obtenerRecursosComprometidosPorId(id);
+        const actividadesComprometidas = await actividadesComprometidasServices.obtenerActividadesComprometidasPorId(id);
         if (!actividadesComprometidas) {
             res.status(404).json({ error: 'Actividades comprometidas no encontradas' });
         } else {
@@ -36,7 +36,7 @@ async function actualizarActividadesComprometidas(req, res, next) {
     const { id } = req.params;
     const newData = req.body;
     try {
-        const actividadesComprometidas = await actividadesComprometidasServices.actualizarRecursosComprometidos(id, newData);
+        const actividadesComprometidas = await actividadesComprometidasServices.actualizarActividadesComprometidas(id, newData);
         if (!actividadesComprometidas) {
             res.status(404).json({ error: 'Actividades comprometidas no encontradas' });
         } else {
@@ -50,7 +50,7 @@ async function actualizarActividadesComprometidas(req, res, next) {
 async function eliminarActividadesComprometidas(req, res, next) {
     const { id } = req.params;
     try {
-        const actividadesComprometidas = await actividadesComprometidasServices.eliminarRecursosComprometidos(id);
+        const actividadesComprometidas = await actividadesComprometidasServices.eliminarActividadesComprometidas(id);
         if (!actividadesComprometidas) {
             res.status(404).json({ error: 'Actividades comprometidas no encontradas' });
         } else {

@@ -70,13 +70,20 @@ async function iniciarSesion(username, password) {
         }
 
         // Generar un token JWT
-        const token = jwt.sign({ userId: usuario.id }, 'secreto', { expiresIn: '1m' });
+        const token = jwt.sign({ userId: usuario.id, rolId: usuario.id_rol }, 'secreto', { expiresIn: '1m' });
 
-        return { message: 'Inicio de sesión exitoso', usuario: usuario, token: token };
+        // Devolver solo id y id_rol
+        const usuarioData = {
+            id: usuario.id,
+            id_rol: usuario.id_rol
+        };
+
+        return { message: 'Inicio de sesión exitoso', usuario: usuarioData, token: token };
     } catch (error) {
         throw new Error(error.message);
     }
 }
+
 
 module.exports = {
     crearUsuario,
@@ -85,4 +92,5 @@ module.exports = {
     actualizarUsuario,
     eliminarUsuario,
     iniciarSesion,
+
 };
