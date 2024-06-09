@@ -74,6 +74,19 @@ async function iniciarSesion(req, res) {
         res.status(500).json({ error: error.message });
     }
 }
+async function recuperarPassword(req, res) {
+    const { primaryEmail } = req.body;
+    try {
+        const sesion = await usuarioService.recuperarPassword(primaryEmail);
+        if (!sesion) {
+            res.status(401).json({ error: 'Credenciales inválidas' });
+        } else {
+            res.status(200).json(sesion);
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
 
 
 module.exports = {
@@ -83,5 +96,5 @@ module.exports = {
     actualizarUsuario,
     eliminarUsuario,
     iniciarSesion,
-    
+    recuperarPassword
 };

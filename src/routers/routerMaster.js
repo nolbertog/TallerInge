@@ -34,7 +34,9 @@ const routePaths = [
     './listadoAlumnosVoluntariosRouter',
     './listadoProfesoresParticipantes',
     './recursosComprometidosRouter',
-    './restriccionAprobacionRouter'
+    './restriccionAprobacionRouter',
+    './login.Route',
+    './recuperarPasswordRoute'
 ];
 
 const routes = routePaths.map(route => require(route));

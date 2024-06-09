@@ -15,10 +15,25 @@ const verificarPermisos = (roles) => async (req, res, next) => {
         case '1': // Administrador
             
             break;
-        case '2': // Coordinador
+        case '2': // Vinculador con el medio general
 
             break;
-        case '3': // Solicitante
+        case '3': // Vinculador con el medio específico
+            
+                break;
+        case '4': // Decano
+
+            break;
+        case '5': // Rector
+            
+                break;
+        case '6': // Docente
+            
+                break;
+        case '7': // Jefes de carrera
+                
+                break;
+        case '8': // Comunidad
             // El usuario tiene permisos de solicitante, puede realizar acciones específicas para solicitantes
             if (req.url.startsWith('/proyectos') && req.params.id_solicitante == req.user.id_solicitante) {
                 

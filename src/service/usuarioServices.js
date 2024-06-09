@@ -1,6 +1,9 @@
 const Usuario = require('../db/models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const nodemailer = require('nodemailer');
+require('dotenv').config();
+
 
 async function crearUsuario(usuarioData) {
     try {
@@ -84,6 +87,52 @@ async function iniciarSesion(username, password) {
     }
 }
 
+async function recuperarPassword(email) {
+    try {
+        const usuario = await Usuario.findOne({ where: { primaryEmail: email } });
+        if (!usuario) {
+            throw new Error('Correo electrónico incorrecto');
+        }
+        
+        // Generar un token para restablecer la contraseña
+        const token = jwt.sign({ userId: usuario.id, email: usuario.primaryEmail }, 'secreto', { expiresIn: '1h' });
+        
+        // Enviar correo electrónico con el enlace de restablecimiento de contraseña
+
+        let transporter = nodemailer.createTransport({
+            host: process.env.PROD_DB_HOST,
+            port: 465,
+            secure: true,
+            auth: {
+                user: process.env.PROD_DB_CORREO,
+                pass: process.env.PROD_DB_PASSWORD
+            }
+        });
+
+        let mailOptions = {
+            from: '"Technical Team" <notificaciones@technical.cl>', // remitente
+            to: usuario.primaryEmail, // destinatario
+            subject: 'Restablecer contraseña', // Asunto
+            text: `Hola ${usuario.username}, haz clic en el siguiente enlace para restablecer tu contraseña: https://localhost:3000/recuperarPassword?token=${token}`, // cuerpo del correo en texto plano
+            html: `<p>Hola ${usuario.username},</p><p>Haz clic en el siguiente enlace para restablecer tu contraseña:</p><p><a href="https://localhost:3000/recuperarPassword?token=${token}">Restablecer contraseña</a></p>` // cuerpo del correo en HTML
+        };
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error('Error al enviar el correo electrónico:', error);
+                throw new Error('Error al enviar el correo electrónico');
+            } else {
+                console.log('Correo enviado: %s', info.messageId);
+            }
+        });
+    
+        
+        return 'Se ha enviado un correo electrónico para restablecer la contraseña';
+    } catch (error) {
+        throw new Error(error.message);
+    }
+}
+
 
 module.exports = {
     crearUsuario,
@@ -92,5 +141,5 @@ module.exports = {
     actualizarUsuario,
     eliminarUsuario,
     iniciarSesion,
-
+    recuperarPassword
 };

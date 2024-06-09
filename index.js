@@ -16,8 +16,6 @@ app.get("/", (req, res) => {
     res.json({ message: "Hola desde el servidor!" });
 });
 
-syncDatabase().then(() => {
-    app.listen(PORT, () => {
-        console.log(`Server listening on ${PORT}`);
-    });
+
+app.listen(PORT, () => {console.log(`Server listening on ${PORT}`);
 });
