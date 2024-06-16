@@ -1,13 +1,14 @@
 const express = require('express');
 const routerDivulgacion = express.Router();
 const divulgacionControllers = require('../controllers/divulgacionControllers'); 
+const permission = require('../midleware/verificarPermisos');
 
 routerDivulgacion.use(express.json());
 
-routerDivulgacion.post('/divulgacion', divulgacionControllers.crearDivulgacion);
-routerDivulgacion.get('/divulgacion', divulgacionControllers.obtenerDivulgacion); 
-routerDivulgacion.get('/divulgacion/:id', divulgacionControllers.obtenerDivulgacionPorId); 
-routerDivulgacion.put('/divulgacion/:id', divulgacionControllers.actualizarDivulgacion);
-routerDivulgacion.delete('/divulgacion/:id', divulgacionControllers.eliminarDivulgacion);
+routerDivulgacion.post('/divulgacion',permission([1]), divulgacionControllers.crearDivulgacion);
+routerDivulgacion.get('/divulgacion',permission([1,2,3,4,5,6,7]), divulgacionControllers.obtenerDivulgacion); 
+routerDivulgacion.get('/divulgacion/:id',permission([1,2,3,4,5,6,7]), divulgacionControllers.obtenerDivulgacionPorId); 
+routerDivulgacion.put('/divulgacion/:id',permission([1]), divulgacionControllers.actualizarDivulgacion);
+routerDivulgacion.delete('/divulgacion/:id',permission([1]), divulgacionControllers.eliminarDivulgacion);
 
 module.exports = routerDivulgacion;

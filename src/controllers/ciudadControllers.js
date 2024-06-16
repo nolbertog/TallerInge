@@ -11,7 +11,7 @@ async function crearCiudad(req, res) {
 
 async function obtenerCiudad(req, res) {
     try {
-        const ciudad = await ciudadService.obtenerRegion();
+        const ciudad = await ciudadService.obtenerCiudad();
         res.status(200).json(ciudad);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -52,6 +52,15 @@ async function eliminarCiudad(req, res) {
         if (!ciudad) {
             return res.status(404).json({ error: 'Ciudad not found' });
         }
+        res.status(204).send();
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
+async function eliminarCiudad(req, res) {
+    const { id } = req.params;
+    try {
+        await ciudadService.eliminarCiudad(id);
         res.status(204).send();
     } catch (error) {
         res.status(500).json({ error: error.message });

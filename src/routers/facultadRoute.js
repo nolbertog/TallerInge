@@ -1,13 +1,14 @@
 const express = require('express');
 const routerFacultad = express.Router();
 const facultadControllers = require('../controllers/facultadControllers'); 
+const permission = require('../midleware/verificarPermisos');
 
 routerFacultad.use(express.json());
 
-routerFacultad.post('/facultad', facultadControllers.crearFacultad);
-routerFacultad.get('/facultad', facultadControllers.obtenerFacultad); 
-routerFacultad.get('/facultad/:id', facultadControllers.obtenerFacultadPorId); 
-routerFacultad.put('/facultad/:id', facultadControllers.actualizarFacultad);
-routerFacultad.delete('/facultad/:id', facultadControllers.eliminarFacultad);
+routerFacultad.post('/facultad',permission([1,2]), facultadControllers.crearFacultad);
+routerFacultad.get('/facultad',permission([1,2,3,4,5]), facultadControllers.obtenerFacultad); 
+routerFacultad.get('/facultad/:id',permission([1,2,3,4,5]), facultadControllers.obtenerFacultadPorId); 
+routerFacultad.put('/facultad/:id',permission([1,2,3]), facultadControllers.actualizarFacultad);
+routerFacultad.delete('/facultad/:id',permission([1,2,3]), facultadControllers.eliminarFacultad);
 
 module.exports = routerFacultad;

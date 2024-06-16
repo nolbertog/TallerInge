@@ -46,6 +46,10 @@ const Usuario = sequelize.define('Usuario', {
     description: {
         type: DataTypes.STRING,
     },
+
+    resetToken: {
+        type: DataTypes.STRING,
+    },
 }, { 
     tableName: 'TBD_USUARIOS',
     hooks: {

@@ -113,20 +113,20 @@ async function recuperarPassword(email) {
             from: '"Technical Team" <notificaciones@technical.cl>', // remitente
             to: usuario.primaryEmail, // destinatario
             subject: 'Restablecer contraseña', // Asunto
-            text: `Hola ${usuario.username}, haz clic en el siguiente enlace para restablecer tu contraseña: https://localhost:3000/recuperarPassword?token=${token}`, // cuerpo del correo en texto plano
-            html: `<p>Hola ${usuario.username},</p><p>Haz clic en el siguiente enlace para restablecer tu contraseña:</p><p><a href="https://localhost:3000/recuperarPassword?token=${token}">Restablecer contraseña</a></p>` // cuerpo del correo en HTML
+            text: `Hola ${usuario.username}, haz clic en el siguiente enlace para restablecer tu contraseña: https://localhost:3000/recuperarPassword?token=${token}&id=${usuario.id}`, // cuerpo del correo en texto plano
+            html: `<p>Hola ${usuario.username},</p><p>Haz clic en el siguiente enlace para restablecer tu contraseña:</p><p><a href="https://localhost:3000/recuperarPassword?token=${token}&id=${usuario.id}">Restablecer contraseña</a></p>` // cuerpo del correo en HTML
         };
-
-        transporter.sendMail(mailOptions, (error, info) => {
+        transporter.sendMail(mailOptions, async (error, info) => {
             if (error) {
                 console.error('Error al enviar el correo electrónico:', error);
                 throw new Error('Error al enviar el correo electrónico');
             } else {
                 console.log('Correo enviado: %s', info.messageId);
+                // Guardar el token en la base de datos
+                await usuario.update({ resetToken: token });
             }
         });
-    
-        
+
         return 'Se ha enviado un correo electrónico para restablecer la contraseña';
     } catch (error) {
         throw new Error(error.message);

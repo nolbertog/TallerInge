@@ -1,13 +1,14 @@
 const express = require('express');
 const routerProyecto = express.Router();
 const proyectoControllers = require('../controllers/proyectoControllers'); 
+const permission = require('../midleware/verificarPermisos');
 
 routerProyecto.use(express.json());
 
-routerProyecto.post('/proyecto', proyectoControllers.crearProyecto);
-routerProyecto.get('/proyecto', proyectoControllers.obtenerProyecto); 
-routerProyecto.get('/proyecto/:id', proyectoControllers.obtenerProyectoPorId); 
-routerProyecto.put('/proyecto/:id', proyectoControllers.actualizarProyecto);
-routerProyecto.delete('/proyecto/:id', proyectoControllers.eliminarProyecto);
+routerProyecto.post('/proyecto',permission([1,2,3,7]), proyectoControllers.crearProyecto);
+routerProyecto.get('/proyecto',permission([1,2,3,4,5,6,7]), proyectoControllers.obtenerProyecto); 
+routerProyecto.get('/proyecto/:id',permission([1,2,3,4,5,6,7]), proyectoControllers.obtenerProyectoPorId); 
+routerProyecto.put('/proyecto/:id',permission([1,2,3,4,5,6,7]), proyectoControllers.actualizarProyecto);
+routerProyecto.delete('/proyecto/:id',permission([1,7]), proyectoControllers.eliminarProyecto);
 
 module.exports = routerProyecto;

@@ -1,14 +1,15 @@
 const express = require('express');
 const colaboradorExternoControllers = require('../controllers/colaboradorExternoControllers'); 
+const permission = require('../midleware/verificarPermisos');
 
 const routerColaboradorExterno = express.Router();
 
 routerColaboradorExterno.use(express.json());
 
-routerColaboradorExterno.post('/colaboradorExterno', colaboradorExternoControllers.crearColaboradorExterno);
-routerColaboradorExterno.get('/colaboradorExterno', colaboradorExternoControllers.obtenerColaboradoresExternos); 
-routerColaboradorExterno.get('/colaboradorExterno/:id', colaboradorExternoControllers.obtenerColaboradorExternoPorId); 
-routerColaboradorExterno.put('/colaboradorExterno/:id', colaboradorExternoControllers.actualizarColaboradorExterno);
-routerColaboradorExterno.delete('/colaboradorExterno/:id', colaboradorExternoControllers.eliminarColaboradorExterno);
+routerColaboradorExterno.post('/colaboradorExterno',permission([1,2,3,5]), colaboradorExternoControllers.crearColaboradorExterno);
+routerColaboradorExterno.get('/colaboradorExterno',permission([1,2,3,5]), colaboradorExternoControllers.obtenerColaboradoresExternos); 
+routerColaboradorExterno.get('/colaboradorExterno/:id',permission([1,2,3,5]), colaboradorExternoControllers.obtenerColaboradorExternoPorId); 
+routerColaboradorExterno.put('/colaboradorExterno/:id',permission([1,2,3,5]), colaboradorExternoControllers.actualizarColaboradorExterno);
+routerColaboradorExterno.delete('/colaboradorExterno/:id',permission([1,2]), colaboradorExternoControllers.eliminarColaboradorExterno);
 
 module.exports = routerColaboradorExterno;

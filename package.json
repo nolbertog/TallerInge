@@ -5,7 +5,7 @@
   "main": "index.js",
   "module": "CommonJS",
   "scripts": {
-    "start": "nodemon ./src/index.js"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",

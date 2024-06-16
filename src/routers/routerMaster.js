@@ -36,7 +36,8 @@ const routePaths = [
     './recursosComprometidosRouter',
     './restriccionAprobacionRouter',
     './login.Route',
-    './recuperarPasswordRoute'
+    './recuperarPasswordRoute',
+    //'./resetPassword.Route',
 ];
 
 const routes = routePaths.map(route => require(route));
