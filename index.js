@@ -1,6 +1,6 @@
 // index.js
 const express = require("express");
-const Master = require('./src/routers/routerMaster.js');
+const Master = require('./src/routers/router.js');
 const { syncDatabase } = require('./src/db/sequelize.js');
 const  cors = require ('cors');
 
