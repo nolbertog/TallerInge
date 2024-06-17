@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "technic1_nono",
+    "password": "Keinelust2289.,",
+    "database": "technic1_ucm",
+    "host": "177.221.140.242",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "technic1_nono",
+    "password": "Keinelust2289.,",
+    "database": "technic1_ucm",
+    "host": "177.221.140.242",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "technic1_nono",
+    "password": "Keinelust2289.,",
+    "database": "technic1_ucm",
+    "host": "177.221.140.242",
+    "dialect": "mysql"
+  }
+}
+

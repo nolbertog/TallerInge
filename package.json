@@ -5,8 +5,12 @@
   "main": "index.js",
   "module": "CommonJS",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "add-users": "sequelize db:seed --options-path ./config/config.json --env development --seed ./seeders/technic1_ucm/add-users-20240617130439-TBD_USUARIOS.js",
+    "undo:add-users": "sequelize --options-path ./config/config.json --env development db:seed:undo --seed add-users-TBD_USUARIOS.js"
+
   },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -18,7 +22,10 @@
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.9.4",
     "nodemailer": "^6.9.13",
-    "sequelize": "^6.37.2"
+    "pg": "^8.12.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.3",
+    "sequelize-cli": "^6.6.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
