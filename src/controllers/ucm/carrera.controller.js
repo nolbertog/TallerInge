@@ -2,7 +2,7 @@ const carreraService = require('../../services/ucm/carreraServices');
 
 async function crearCarrera(req, res) {
     try {
-        const carrera = await carreraService.crearRegion(req.body);
+        const carrera = await carreraService.crearCarrera(req.body);
         res.status(201).json(carrera);
     } catch (error) {
         res.status(500).json({ error: error.message });

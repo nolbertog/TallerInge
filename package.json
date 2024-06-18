@@ -8,11 +8,9 @@
     "start": "nodemon index.js",
     "add-users": "sequelize db:seed --options-path ./config/config.json --env development --seed ./seeders/technic1_ucm/add-users-20240617130439-TBD_USUARIOS.js",
     "undo:add-users": "sequelize --options-path ./config/config.json --env development db:seed:undo --seed add-users-TBD_USUARIOS.js"
-
   },
-
   "keywords": [],
-  "author": "",
+  "author": "Nolberto Gonzalez Troncoso",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
