@@ -4,7 +4,7 @@ const Proyecto = require('./proyecto');
 
 
 const RecursosComprometido = sequelize.define('RecursosComprometido', {
-    rut: {
+    id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,

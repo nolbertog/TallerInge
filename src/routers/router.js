@@ -49,6 +49,10 @@ const routePaths = [
     './users/alumnoVoluntario.router',
     './users/profesorParticipante.route',
 
+    //Report
+
+    './report/reportRouter'
+
 ];
 
 const routes = routePaths.map(route => require(route));
