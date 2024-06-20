@@ -2,13 +2,17 @@ const express = require('express');
 const routerReport = express.Router();
 const Proyecto = require('../../db/models/proyects/proyecto');
 const Usuario = require('../../db/models/users/user');
-const {Sequelize} = require('sequelize');
+const { Sequelize } = require('sequelize');
+const Etapa = require('../../db/models/proyects/Etapa');
 
-// Definicion la relación
+// Definición de la relación
 Proyecto.belongsTo(Usuario, { foreignKey: 'id_solicitante' });
+Proyecto.belongsTo(Etapa, { foreignKey: 'id_stage' });
 
-// Ruta para obtener todos los proyectos con el nombre del solicitante
-routerReport.get('/proyectosReport', async (req, res) => {
+// Ruta para obtener todos los proyectos con el nombre del solicitante y filtrando por etapa
+routerReport.get('/proyectosReport/:etapa', async (req, res) => {
+    const { etapa } = req.params; // Get the stage from path parameters
+
     try {
         const proyectos = await Proyecto.findAll({
             attributes: [
@@ -20,10 +24,17 @@ routerReport.get('/proyectosReport', async (req, res) => {
                 ['fechaejecucion', 'Fecha inicio del proyecto'],
                 ['finaldate', 'Fecha termino proyecto']
             ],
-            include: [{
-                model: Usuario,
-                attributes: []
-            }]
+            include: [
+                {
+                    model: Usuario,
+                    attributes: []
+                },
+                {
+                    model: Etapa,
+                    attributes: [],
+                    where: etapa ? { name_stage: etapa } : {}
+                }
+            ]
         });
         res.json(proyectos);
     } catch (error) {
@@ -32,3 +43,4 @@ routerReport.get('/proyectosReport', async (req, res) => {
 });
 
 module.exports = routerReport;
+
