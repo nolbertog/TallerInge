@@ -4,13 +4,14 @@ const Proyecto = require('../../db/models/proyects/proyecto');
 const Usuario = require('../../db/models/users/user');
 const { Sequelize } = require('sequelize');
 const Etapa = require('../../db/models/proyects/Etapa');
+const permission = require('../../middleware/verificarPermisos');
 
 // Definición de la relación
 Proyecto.belongsTo(Usuario, { foreignKey: 'id_solicitante' });
 Proyecto.belongsTo(Etapa, { foreignKey: 'id_stage' });
 
 // Ruta para obtener todos los proyectos con el nombre del solicitante y filtrando por etapa
-routerReport.get('/proyectosReport/:etapa', async (req, res) => {
+routerReport.get('/proyectosReport/:etapa', permission([1,2,3,4,6]), async (req, res) => {
     const { etapa } = req.params; // Get the stage from path parameters
 
     try {
@@ -43,4 +44,3 @@ routerReport.get('/proyectosReport/:etapa', async (req, res) => {
 });
 
 module.exports = routerReport;
-

@@ -51,7 +51,8 @@ const routePaths = [
 
     //Report
 
-    './report/reportRouter'
+    './report/proyectReport.route',
+    './report/proyectValor.route',
 
 ];
 
