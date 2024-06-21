@@ -1,1 +1,0 @@
-npm run sequelize:technic1_ucm:TBD_USUARIOS:seed:undo:add-users
