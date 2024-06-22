@@ -1,4 +1,5 @@
 const fuenteFinanciamientoServices = require('../../services/proyects/fuenteFinanciamiento.service');
+const ciudadService = require("../../services/address/ciudad.service");
 
 async function crearFuenteFinanciamiento(req, res) {
     try {
@@ -37,7 +38,7 @@ async function actualizarFuenteFinanciamiento(req, res) {
     try {
         const fuenteFinanciamiento = await fuenteFinanciamientoServices.actualizarFuenteFinanciamiento(id, newData);
         if (!fuenteFinanciamiento) {
-            return res.status(404).json({ error: 'Fuente de financiamiento no encontrada' });
+            return res.status(404).json({ error: 'Fuente Financiamiento not found' });
         }
         res.status(200).json(fuenteFinanciamiento);
     } catch (error) {
