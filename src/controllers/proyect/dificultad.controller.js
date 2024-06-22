@@ -1,5 +1,6 @@
 const dificultadService = require('../../services/proyects/dificultad.service');
 
+
 async function crearDificultad(req, res) {
     try {
         const dificultad = await dificultadService.crearDificultad(req.body);

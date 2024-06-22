@@ -1,11 +1,12 @@
 const Dificultad = require('../../db/models/proyects/dificultad');
 
+
 async function crearDificultad(dificultadData) {
     try {
-        const dificultad = await Divulgacion.create(dificultadData);
+        const dificultad = await Dificultad.create(dificultadData);
         return dificultad;
     } catch (error) {
-        throw new Error('Error al crear la dificultad');
+        throw new Error('Error al crear la ciudad');
     }
 }
 

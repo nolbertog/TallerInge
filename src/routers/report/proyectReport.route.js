@@ -3,7 +3,7 @@ const routerReport = express.Router();
 const Proyecto = require('../../db/models/proyects/proyecto');
 const Usuario = require('../../db/models/users/user');
 const { Sequelize } = require('sequelize');
-const Etapa = require('../../db/models/proyects/Etapa');
+const Etapa = require('../../db/models/proyects/etapa');
 const permission = require('../../middleware/verificarPermisos');
 
 // Definición de la relación
