@@ -1,4 +1,5 @@
 const actividadesComprometidasServices = require('../../services/proyects/actividadComprometida.service');
+const ciudadService = require("../../services/address/ciudad.service");
 
 async function crearActividadesComprometidas(req, res, next) {
     try {
@@ -18,17 +19,16 @@ async function obtenerActividadesComprometidas(req, res, next) {
     }
 }
 
-async function obtenerActividadesComprometidasPorId(req, res, next) {
+async function obtenerActividadesComprometidasPorId(req, res) {
     const { id } = req.params;
     try {
-        const actividadesComprometidas = await actividadesComprometidasServices.obtenerActividadesComprometidasPorId(id);
+        const actividadesComprometidas = await actividadesComprometidasServices.obtenerActividadesComprometidaPorId(id);
         if (!actividadesComprometidas) {
-            res.status(404).json({ error: 'Actividades comprometidas no encontradas' });
-        } else {
-            res.status(200).json(actividadesComprometidas);
+            return res.status(404).json({ error: 'Ciudad not found' });
         }
+        res.status(200).json(actividadesComprometidas);
     } catch (error) {
-        next(error);
+        res.status(500).json({ error: error.message });
     }
 }
 

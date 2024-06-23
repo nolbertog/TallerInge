@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f5ebee31-1666-43a3-847a-a56a91879472" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mysql2/lib/auth_plugins/caching_sha2_password.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mysql2/lib/auth_plugins/caching_sha2_password.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mysql2/lib/auth_plugins/caching_sha2_password.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mysql2/lib/auth_plugins/caching_sha2_password.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mysql2/lib/commands/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mysql2/lib/commands/query.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mysql2/lib/connection_config.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mysql2/lib/connection_config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mysql2/lib/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mysql2/lib/helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mysql2/lib/parsers/binary_parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mysql2/lib/parsers/binary_parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mysql2/lib/parsers/parser_cache.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mysql2/lib/parsers/parser_cache.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mysql2/lib/parsers/text_parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mysql2/lib/parsers/text_parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mysql2/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mysql2/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mysql2/typings/mysql/lib/Auth.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mysql2/typings/mysql/lib/Auth.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mysql2/typings/mysql/lib/Connection.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mysql2/typings/mysql/lib/Connection.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/address/direccion.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/address/direccion.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/proyect/actividadContrometida.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/proyect/actividadContrometida.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/models/address/direccion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/models/address/direccion.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2iGVCG8bb5EV8YrCHpgJXHN4I2N" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Node.js.index.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/nono/Desktop/TallerInge",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/nono/Applications/IntelliJ IDEA Ultimate.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f5ebee31-1666-43a3-847a-a56a91879472" name="Changes" comment="" />
+      <created>1719116772848</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1719116772848</updated>
+      <workItem from="1719116773981" duration="1111000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -47,6 +47,6 @@ const Direccion = sequelize.define('Direccion', {
     },
     
     
-}, { tableName: 'TBD_ACTIVIDADES_COMPROMETIDAS' });
+}, { tableName: 'TBD_DIRECCION' });
 
 module.exports = Direccion;
