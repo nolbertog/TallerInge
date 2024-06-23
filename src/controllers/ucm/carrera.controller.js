@@ -1,5 +1,5 @@
-const carreraService = require('../../services/ucm/carreraServices');
-const usuarioService = require("../../services/users/usuarioServices");
+const carreraService = require('../../services/ucm/carrera.services');
+const usuarioService = require("../../services/users/usuario.service");
 
 async function crearCarrera(req, res) {
     try {

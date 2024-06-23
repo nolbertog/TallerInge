@@ -1,4 +1,4 @@
-const beneficiariosService = require('../../services/users/beneficiariosServices');
+const beneficiariosService = require('../../services/users/beneficiarios.service');
 
 async function handleErrors(res, error) {
     return res.status(500).json({ error: error.message });

@@ -17,10 +17,10 @@ const ColaboradorExtrerno = sequelize.define('ColaboradorExtrerno', {
         type: DataTypes.STRING,
     },
     name_external_colaborador: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         references:{
             model: Proyecto,
-            key: id,
+            key: "id",
         }
     },
     

@@ -1,4 +1,4 @@
-const sedeService = require('../../services/ucm/sedeServices');
+const sedeService = require('../../services/ucm/sede.services');
 
 async function crearSede(req, res) {
     try {

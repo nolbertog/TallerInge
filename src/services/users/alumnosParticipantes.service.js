@@ -1,4 +1,4 @@
-const AlumnosParticipantes = require('../../db/models/users/alumnoParticipante');
+const AlumnosParticipantesService = require('../../db/models/users/alumnoParticipante');
 
 async function crearAlumnosParticipantes(alumnosParticipantesData) {
     try {
@@ -11,7 +11,7 @@ async function crearAlumnosParticipantes(alumnosParticipantesData) {
 
 async function obtenerAlumnosParticipantes() {
     try {
-        const alumnosParticipantes = await AlumnosParticipantes.findAll();
+        const alumnosParticipantes = await AlumnosParticipantesService.findAll();
         return alumnosParticipantes;
     } catch (error) {
         throw new Error('Error al obtener los alumnos participantes');
@@ -20,7 +20,7 @@ async function obtenerAlumnosParticipantes() {
 
 async function obtenerAlumnosParticipantesPorId(id) {
     try {
-        const alumnosParticipantes = await AlumnosParticipantes.findByPk(id);
+        const alumnosParticipantes = await AlumnosParticipantesService.findByPk(id);
         if (!alumnosParticipantes) {
             throw new Error('Alumno participante no encontrado');
         }
@@ -32,13 +32,13 @@ async function obtenerAlumnosParticipantesPorId(id) {
 
 async function actualizarAlumnosParticipantes(id, newData) {
     try {
-        const [updated] = await AlumnosParticipantes.update(newData, {
+        const [updated] = await AlumnosParticipantesService.update(newData, {
             where: { id },
         });
         if (!updated) {
             throw new Error('Alumno participante no encontrado');
         }
-        const alumnosParticipantes = await AlumnosParticipantes.findByPk(id);
+        const alumnosParticipantes = await AlumnosParticipantesService.findByPk(id);
         return alumnosParticipantes;
     } catch (error) {
         throw new Error('Error al actualizar el alumno participante');
@@ -47,7 +47,7 @@ async function actualizarAlumnosParticipantes(id, newData) {
 
 async function eliminarAlumnoParticipante(id) {
     try {
-        const deleted = await AlumnosParticipantes.destroy({ where: { id } });
+        const deleted = await AlumnosParticipantesService.destroy({ where: { id } });
         if (!deleted) {
             throw new Error('Alumno participante no encontrado');
         }

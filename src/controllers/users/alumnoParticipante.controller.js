@@ -1,4 +1,4 @@
-const listadoAlumnosVoluntariosServices = require('../../services/users/listadoAlumnosVoluntariosServices');
+const listadoAlumnosVoluntariosServices = require('../../services/users/listadoAlumnosVoluntarios.service');
 
 async function crearAlumnosParticipantes(req, res) {
     try {

@@ -1,9 +1,9 @@
-const listadoAlumnosVoluntariosServices = require('../../services/users/listadoAlumnosVoluntariosServices');
+const colaboradorExternoServices = require('../../services/users/colaboradorExterno.service');
 
 // Create a new external collaborator
 async function crearColaboradorExterno(req, res) {
     try {
-        const colaboradorExterno = await listadoAlumnosVoluntariosServices.crearRecursosComprometidos(req.body);
+        const colaboradorExterno = await colaboradorExternoServices.crearColaboradorExterno(req.body);
         res.status(201).json(colaboradorExterno);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -13,7 +13,7 @@ async function crearColaboradorExterno(req, res) {
 // Get all external collaborators
 async function obtenerColaboradoresExternos(req, res) {
     try {
-        const colaboradoresExternos = await listadoAlumnosVoluntariosServices.obtenerRecursosComprometidos();
+        const colaboradoresExternos = await colaboradorExternoServices.obtenerColaboradorExterno();
         res.status(200).json(colaboradoresExternos);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -24,7 +24,7 @@ async function obtenerColaboradoresExternos(req, res) {
 async function obtenerColaboradorExternoPorId(req, res) {
     const { id } = req.params;
     try {
-        const colaboradorExterno = await listadoAlumnosVoluntariosServices.obtenerRecursosComprometidosPorId(id);
+        const colaboradorExterno = await colaboradorExternoServices.obtenerColaboradorExternoPorId(id);
         if (!colaboradorExterno) {
             return res.status(404).json({ error: 'External collaborator not found' });
         }
@@ -39,7 +39,7 @@ async function actualizarColaboradorExterno(req, res) {
     const { id } = req.params;
     const newData = req.body;
     try {
-        const colaboradorExterno = await listadoAlumnosVoluntariosServices.actualizarRecursosComprometidos(id, newData);
+        const colaboradorExterno = await colaboradorExternoServices.actualizarColaboradorExterno(id, newData);
         if (!colaboradorExterno) {
             return res.status(404).json({ error: 'External collaborator not found' });
         }
@@ -53,7 +53,7 @@ async function actualizarColaboradorExterno(req, res) {
 async function eliminarColaboradorExterno(req, res) {
     const { id } = req.params;
     try {
-        const deletedCount = await listadoAlumnosVoluntariosServices.eliminarRecursosComprometidos(id);
+        const deletedCount = await colaboradorExternoServices.eliminarColaboradorExterno(id);
         if (deletedCount === 0) {
             return res.status(404).json({ error: 'External collaborator not found' });
         }

@@ -1,4 +1,4 @@
-const facultadService = require('../../services/ucm/facultadServices');
+const facultadService = require('../../services/ucm/facultad.services');
 
 async function crearFacultad(req, res) {
     try {

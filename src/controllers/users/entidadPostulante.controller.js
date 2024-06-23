@@ -1,4 +1,4 @@
-const entidadPostulanteServices = require('../../services/users/entidadPostulanteServices');
+const entidadPostulanteServices = require('../../services/users/entidadPostulante.service');
 
 async function crearEntidadPostulante(req, res) {
     try {

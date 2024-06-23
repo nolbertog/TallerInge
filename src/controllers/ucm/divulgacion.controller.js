@@ -1,4 +1,5 @@
-const divulgacionService = require('../../services/ucm/divulgacionServices');
+const divulgacionService = require('../../services/ucm/divulgacion.services');
+const carreraService = require("../../services/ucm/carrera.services");
 
 async function crearDivulgacion(req, res) {
     try {
@@ -37,7 +38,7 @@ async function actualizarDivulgacion(req, res) {
     try {
         const divulgacion = await divulgacionService.actualizarDivulgacion(id, newData);
         if (!divulgacion) {
-            return res.status(404).json({ error: 'Divulgacion not found' });
+            return res.status(404).json({ error: 'Divulgacion no encontrada' });
         }
         res.status(200).json(divulgacion);
     } catch (error) {
@@ -48,10 +49,7 @@ async function actualizarDivulgacion(req, res) {
 async function eliminarDivulgacion(req, res) {
     const { id } = req.params;
     try {
-        const deletedDivulgacion = await divulgacionService.eliminarDivulgacion(id);
-        if (!deletedDivulgacion) {
-            return res.status(404).json({ error: 'Divulgacion not found' });
-        }
+        await divulgacionService.eliminarDivulgacion(id);
         res.status(204).send();
     } catch (error) {
         res.status(500).json({ error: error.message });

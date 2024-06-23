@@ -47,8 +47,8 @@ async function actualizarDivulgacion(id, newData) {
 
 async function eliminarDivulgacion(id) {
     try {
-        const deleted = await Divulgacion.destroy({ where: { id } });
-        if (!deleted) {
+        const divulgacion = await Divulgacion.destroy({ where: { id } });
+        if (!divulgacion) {
             throw new Error('Divulgacion no encontrada');
         }
     } catch (error) {

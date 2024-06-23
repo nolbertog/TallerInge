@@ -1,8 +1,8 @@
-const asignaturasParticipantesServices = require('../../services/ucm/asignaturasParticipantesServices');
+const asignaturasParticipantesServices = require('../../services/ucm/asignaturasParticipantes.services');
 
 async function crearAsignaturasParticipantes(req, res) {
     try {
-        const asignaturasParticipantes = await asignaturasParticipantesServices.crearRecursosComprometidos(req.body);
+        const asignaturasParticipantes = await asignaturasParticipantesServices.crearAsignaturasParticipantes(req.body);
         res.status(201).json(asignaturasParticipantes);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -11,7 +11,7 @@ async function crearAsignaturasParticipantes(req, res) {
 
 async function obtenerAsignaturasParticipantes(req, res) {
     try {
-        const asignaturasParticipantes = await asignaturasParticipantesServices.obtenerRecursosComprometidos();
+        const asignaturasParticipantes = await asignaturasParticipantesServices.obtenerAsignaturasParticipantes();
         res.status(200).json(asignaturasParticipantes);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -21,7 +21,7 @@ async function obtenerAsignaturasParticipantes(req, res) {
 async function obtenerAsignaturasParticipantesPorId(req, res) {
     const { id } = req.params;
     try {
-        const asignaturasParticipantes = await asignaturasParticipantesServices.obtenerRecursosComprometidosPorId(id);
+        const asignaturasParticipantes = await asignaturasParticipantesServices.obtenerAsignaturasParticipantesPorId(id);
         if (!asignaturasParticipantes) {
             return res.status(404).json({ error: 'Asignaturas participantes not found' });
         }
@@ -35,7 +35,7 @@ async function actualizarAsignaturasParticipantes(req, res) {
     const { id } = req.params;
     const newData = req.body;
     try {
-        const asignaturasParticipantes = await asignaturasParticipantesServices.actualizarRecursosComprometidos(id, newData);
+        const asignaturasParticipantes = await asignaturasParticipantesServices.actualizarAsignaturasParticipantes(id, newData);
         if (!asignaturasParticipantes) {
             return res.status(404).json({ error: 'Asignaturas participantes not found' });
         }
@@ -48,7 +48,7 @@ async function actualizarAsignaturasParticipantes(req, res) {
 async function eliminarAsignaturasParticipantes(req, res) {
     const { id } = req.params;
     try {
-        const deletedCount = await asignaturasParticipantesServices.eliminarRecursosComprometidos(id);
+        const deletedCount = await asignaturasParticipantesServices.eliminarAsignaturasParticipantes(id);
         if (deletedCount === 0) {
             return res.status(404).json({ error: 'Asignaturas participantes not found' });
         }

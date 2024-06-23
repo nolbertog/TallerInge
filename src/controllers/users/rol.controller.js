@@ -1,4 +1,4 @@
-const rolService = require('../../services/users/rolServices');
+const rolService = require('../../services/users/rol.service');
 
 async function crearRol(req, res) {
     try {

@@ -1,8 +1,8 @@
-const ColaboradorExterno = require('../../db/models/users/colaboradorExterno');
+const ColaboradorExternoService = require('../../db/models/users/colaboradorExterno');
 
 async function crearColaboradorExterno(colaboradorExternoData) {
     try {
-        const colaboradorExterno = await ColaboradorExterno.create(colaboradorExternoData);
+        const colaboradorExterno = await ColaboradorExternoService.create(colaboradorExternoData);
         return colaboradorExterno;
     } catch (error) {
         throw new Error('Error al crear el Colaborador Externo');
@@ -11,7 +11,7 @@ async function crearColaboradorExterno(colaboradorExternoData) {
 
 async function obtenerColaboradorExterno() {
     try {
-        const colaboradorExterno = await ColaboradorExterno.findAll();
+        const colaboradorExterno = await ColaboradorExternoService.findAll();
         return colaboradorExterno;
     } catch (error) {
         throw new Error('Error al obtener el Colaborador Externo');
@@ -20,7 +20,7 @@ async function obtenerColaboradorExterno() {
 
 async function obtenerColaboradorExternoPorId(id) {
     try {
-        const colaboradorExterno = await ColaboradorExterno.findByPk(id);
+        const colaboradorExterno = await ColaboradorExternoService.findByPk(id);
         if (!colaboradorExterno) {
             throw new Error('Colaborador Externo no encontrado');
         }
@@ -32,13 +32,13 @@ async function obtenerColaboradorExternoPorId(id) {
 
 async function actualizarColaboradorExterno(id, newData) {
     try {
-        const [updated] = await ColaboradorExterno.update(newData, {
+        const [updated] = await ColaboradorExternoService.update(newData, {
             where: { id },
         });
         if (!updated) {
             throw new Error('Colaborador Externo no encontrado');
         }
-        const colaboradorExterno = await ColaboradorExterno.findByPk(id);
+        const colaboradorExterno = await ColaboradorExternoService.findByPk(id);
         return colaboradorExterno;
     } catch (error) {
         throw new Error('Error al actualizar el Colaborador Externo');
@@ -47,7 +47,7 @@ async function actualizarColaboradorExterno(id, newData) {
 
 async function eliminarColaboradorExterno(id) {
     try {
-        const deleted = await ColaboradorExterno.destroy({ where: { id } });
+        const deleted = await ColaboradorExternoService.destroy({ where: { id } });
         if (!deleted) {
             throw new Error('Colaborador Externo no encontrado');
         }

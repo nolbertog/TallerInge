@@ -4,7 +4,7 @@ const Proyecto = require('../proyects/proyecto');
 
 
 const Divulgacion = sequelize.define('Divulgacion', {
-    rut: {
+    id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
