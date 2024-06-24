@@ -45,7 +45,7 @@ async function actualizarAlumnosParticipantes(id, newData) {
     }
 }
 
-async function eliminarAlumnoParticipante(id) {
+async function eliminarAlumnoParticipantes(id) {
     try {
         const deleted = await AlumnosParticipantesService.destroy({ where: { id } });
         if (!deleted) {
@@ -61,5 +61,5 @@ module.exports = {
     obtenerAlumnosParticipantes,
     obtenerAlumnosParticipantesPorId,
     actualizarAlumnosParticipantes,
-    eliminarAlumnoParticipante,
+    eliminarAlumnoParticipantes,
 };

@@ -6,34 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f5ebee31-1666-43a3-847a-a56a91879472" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ucm/asignaturaParticipante.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ucm/asignaturaParticipante.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ucm/carrera.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ucm/carrera.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ucm/divulgacion.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ucm/divulgacion.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ucm/facultad.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ucm/facultad.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ucm/sede.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ucm/sede.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/users/alumnoParticipante.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/users/alumnoParticipante.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/users/alumnoVoluntario.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/users/alumnoVoluntario.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/users/beneficiario.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/users/beneficiario.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/users/colaboradorExterno.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/users/colaboradorExterno.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/users/entidadPostulante.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/users/entidadPostulante.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/users/profesorParticipante.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/users/profesorParticipante.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/users/rol.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/users/rol.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/users/usuario.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/users/usuario.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/models/ucm/divulgacion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/models/ucm/divulgacion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/models/users/colaboradorExterno.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/models/users/colaboradorExterno.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ucm/asignaturasParticipantesServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ucm/asignaturasParticipantes.services.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ucm/carreraServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ucm/carrera.services.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ucm/divulgacionServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ucm/divulgacion.services.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ucm/facultadServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ucm/facultad.services.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ucm/sedeServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ucm/sede.services.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/users/alumnosParticipantes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/users/alumnosParticipantes.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/users/beneficiariosServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/users/beneficiarios.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/users/colaboradorExterno.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/users/colaboradorExterno.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/users/entidadPostulanteServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/users/entidadPostulante.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/users/listadoAlumnosVoluntariosServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/users/listadoAlumnosVoluntarios.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/users/listadoProfesoresParticipantesServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/users/listadoProfesoresParticipantes.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/users/rolServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/users/rol.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/users/usuarioServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/users/usuario.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/users/alumnosParticipantes.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/users/alumnosParticipantes.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,24 +26,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Node.js.actividadComprometida.router.js.executor": "Run",
-    "Node.js.asignaturaParticipante.router.js.executor": "Run",
-    "Node.js.index.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/nono/Desktop/TallerInge",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/nono/Applications/IntelliJ IDEA Ultimate.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Node.js.actividadComprometida.router.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.asignaturaParticipante.router.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.index.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/nono/Desktop/TallerInge&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/nono/Applications/IntelliJ IDEA Ultimate.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -88,7 +63,8 @@
       <workItem from="1719116773981" duration="2168000" />
       <workItem from="1719119010696" duration="431000" />
       <workItem from="1719120091793" duration="188000" />
-      <workItem from="1719178751997" duration="2614000" />
+      <workItem from="1719178751997" duration="2803000" />
+      <workItem from="1719230602470" duration="622000" />
     </task>
     <servers />
   </component>

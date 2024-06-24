@@ -1,11 +1,11 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../../sequelize');
 const Carrera = require('../ucm/carrera');
-const AsignaturaParticipante = require('./asignaturas_participantes')
+const AsignaturaParticipante = require('../ucm/asignaturaParticipante')
 
 
 const AlumnoParticipante = sequelize.define('AlumnosParticipantes', {
-    rut: {
+    id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
