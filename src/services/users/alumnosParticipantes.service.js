@@ -2,7 +2,7 @@ const AlumnosParticipantesService = require('../../db/models/users/alumnoPartici
 
 async function crearAlumnosParticipantes(alumnosParticipantesData) {
     try {
-        const alumnosParticipantes = await AlbunFoto.create(alumnosParticipantesData);
+        const alumnosParticipantes = await AlumnosParticipantesService.create(alumnosParticipantesData);
         return alumnosParticipantes;
     } catch (error) {
         throw new Error('Error al crear los alumnos participantes');
